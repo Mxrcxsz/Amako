@@ -10,6 +10,9 @@
 		0F6C423B279EEFAE007B26F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F6C423A279EEFAE007B26F1 /* GoogleService-Info.plist */; };
 		0F6C423E279EF412007B26F1 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0F6C423D279EF412007B26F1 /* FirebaseDatabase */; };
 		0F6C4240279EF412007B26F1 /* FirebaseDatabaseSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 0F6C423F279EF412007B26F1 /* FirebaseDatabaseSwift-Beta */; };
+		19CB52A827A00F7300ABB675 /* MangaDex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB52A727A00F7300ABB675 /* MangaDex.swift */; };
+		19CB52AA27A0116B00ABB675 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB52A927A0116B00ABB675 /* PageCollectionViewCell.swift */; };
+		19CB52AE27A0141400ABB675 /* PagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB52AD27A0141400ABB675 /* PagesCollectionViewController.swift */; };
 		BDE9D106279AD881009631C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE9D105279AD881009631C4 /* AppDelegate.swift */; };
 		BDE9D108279AD881009631C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE9D107279AD881009631C4 /* SceneDelegate.swift */; };
 		BDE9D10A279AD881009631C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE9D109279AD881009631C4 /* ViewController.swift */; };
@@ -22,6 +25,9 @@
 
 /* Begin PBXFileReference section */
 		0F6C423A279EEFAE007B26F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		19CB52A727A00F7300ABB675 /* MangaDex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaDex.swift; sourceTree = "<group>"; };
+		19CB52A927A0116B00ABB675 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
+		19CB52AD27A0141400ABB675 /* PagesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesCollectionViewController.swift; sourceTree = "<group>"; };
 		BDE9D102279AD881009631C4 /* MAD2_ASG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MAD2_ASG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDE9D105279AD881009631C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDE9D107279AD881009631C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +77,9 @@
 				BDE9D107279AD881009631C4 /* SceneDelegate.swift */,
 				BDE9D109279AD881009631C4 /* ViewController.swift */,
 				BDE9D10B279AD882009631C4 /* Main.storyboard */,
+				19CB52AD27A0141400ABB675 /* PagesCollectionViewController.swift */,
+				19CB52A927A0116B00ABB675 /* PageCollectionViewCell.swift */,
+				19CB52A727A00F7300ABB675 /* MangaDex.swift */,
 				BDE9D111279AD883009631C4 /* Assets.xcassets */,
 				BDE9D113279AD883009631C4 /* LaunchScreen.storyboard */,
 				BDE9D116279AD883009631C4 /* Info.plist */,
@@ -162,7 +171,10 @@
 				BDE9D10A279AD881009631C4 /* ViewController.swift in Sources */,
 				BDE9D106279AD881009631C4 /* AppDelegate.swift in Sources */,
 				BDE9D108279AD881009631C4 /* SceneDelegate.swift in Sources */,
+				19CB52A827A00F7300ABB675 /* MangaDex.swift in Sources */,
 				BDE9D110279AD882009631C4 /* MAD2_ASG.xcdatamodeld in Sources */,
+				19CB52AA27A0116B00ABB675 /* PageCollectionViewCell.swift in Sources */,
+				19CB52AE27A0141400ABB675 /* PagesCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
