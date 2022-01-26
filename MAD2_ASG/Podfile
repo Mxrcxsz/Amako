@@ -6,7 +6,6 @@ target 'MAD2_ASG' do
   use_frameworks!
 
   # Pods for MAD2_ASG
-pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'Alamofire'
 
