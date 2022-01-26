@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F4ED18027A0FD1B00A76E3A /* LoginValidateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4ED17F27A0FD1B00A76E3A /* LoginValidateViewController.swift */; };
 		0F6C423B279EEFAE007B26F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F6C423A279EEFAE007B26F1 /* GoogleService-Info.plist */; };
 		0F6C423E279EF412007B26F1 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0F6C423D279EF412007B26F1 /* FirebaseDatabase */; };
 		0F6C4240279EF412007B26F1 /* FirebaseDatabaseSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 0F6C423F279EF412007B26F1 /* FirebaseDatabaseSwift-Beta */; };
 		19CB52A827A00F7300ABB675 /* MangaDex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB52A727A00F7300ABB675 /* MangaDex.swift */; };
 		19CB52AA27A0116B00ABB675 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB52A927A0116B00ABB675 /* PageCollectionViewCell.swift */; };
 		19CB52AE27A0141400ABB675 /* PagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB52AD27A0141400ABB675 /* PagesCollectionViewController.swift */; };
+		2DF527AAB7150D4ED2A1EBA2 /* Pods_MAD2_ASG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F996234FFE9B4CC3A6B134E3 /* Pods_MAD2_ASG.framework */; };
 		BDB2C81827A06EEB00E5E9C1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2C81727A06EEB00E5E9C1 /* SearchViewController.swift */; };
 		BDB2C81B27A077AE00E5E9C1 /* ModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2C81A27A077AE00E5E9C1 /* ModelClass.swift */; };
 		BDE9D106279AD881009631C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE9D105279AD881009631C4 /* AppDelegate.swift */; };
@@ -26,10 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D91CF1A71125A536CCC7B6D /* Pods-MAD2_ASG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAD2_ASG.release.xcconfig"; path = "Target Support Files/Pods-MAD2_ASG/Pods-MAD2_ASG.release.xcconfig"; sourceTree = "<group>"; };
+		0F4ED17F27A0FD1B00A76E3A /* LoginValidateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidateViewController.swift; sourceTree = "<group>"; };
 		0F6C423A279EEFAE007B26F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		19CB52A727A00F7300ABB675 /* MangaDex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaDex.swift; sourceTree = "<group>"; };
 		19CB52A927A0116B00ABB675 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		19CB52AD27A0141400ABB675 /* PagesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesCollectionViewController.swift; sourceTree = "<group>"; };
+		56454ACBA4C95331D6B605D2 /* Pods-MAD2_ASG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAD2_ASG.debug.xcconfig"; path = "Target Support Files/Pods-MAD2_ASG/Pods-MAD2_ASG.debug.xcconfig"; sourceTree = "<group>"; };
 		BDB2C81727A06EEB00E5E9C1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BDB2C81A27A077AE00E5E9C1 /* ModelClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelClass.swift; sourceTree = "<group>"; };
 		BDE9D102279AD881009631C4 /* MAD2_ASG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MAD2_ASG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +46,7 @@
 		BDE9D111279AD883009631C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDE9D114279AD883009631C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDE9D116279AD883009631C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F996234FFE9B4CC3A6B134E3 /* Pods_MAD2_ASG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAD2_ASG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,17 +57,29 @@
 				0F6C4240279EF412007B26F1 /* FirebaseDatabaseSwift-Beta in Frameworks */,
 				0F6C423E279EF412007B26F1 /* FirebaseDatabase in Frameworks */,
 				BDE9D11F279AE065009631C4 /* Kingfisher in Frameworks */,
+				2DF527AAB7150D4ED2A1EBA2 /* Pods_MAD2_ASG.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36643895B331CFC7D584D885 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				56454ACBA4C95331D6B605D2 /* Pods-MAD2_ASG.debug.xcconfig */,
+				0D91CF1A71125A536CCC7B6D /* Pods-MAD2_ASG.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BDE9D0F9279AD881009631C4 = {
 			isa = PBXGroup;
 			children = (
 				BDE9D104279AD881009631C4 /* MAD2_ASG */,
 				BDE9D103279AD881009631C4 /* Products */,
+				36643895B331CFC7D584D885 /* Pods */,
+				DC2E8A06FF6B254070A9D6FF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +99,7 @@
 				BDE9D107279AD881009631C4 /* SceneDelegate.swift */,
 				BDE9D109279AD881009631C4 /* ViewController.swift */,
 				BDE9D10B279AD882009631C4 /* Main.storyboard */,
+				0F4ED17F27A0FD1B00A76E3A /* LoginValidateViewController.swift */,
 				19CB52AD27A0141400ABB675 /* PagesCollectionViewController.swift */,
 				19CB52A927A0116B00ABB675 /* PageCollectionViewCell.swift */,
 				19CB52A727A00F7300ABB675 /* MangaDex.swift */,
@@ -94,6 +113,14 @@
 			path = MAD2_ASG;
 			sourceTree = "<group>";
 		};
+		DC2E8A06FF6B254070A9D6FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F996234FFE9B4CC3A6B134E3 /* Pods_MAD2_ASG.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -101,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDE9D119279AD883009631C4 /* Build configuration list for PBXNativeTarget "MAD2_ASG" */;
 			buildPhases = (
+				C6B846193AE3B1A182A96531 /* [CP] Check Pods Manifest.lock */,
 				BDE9D0FE279AD881009631C4 /* Sources */,
 				BDE9D0FF279AD881009631C4 /* Frameworks */,
 				BDE9D100279AD881009631C4 /* Resources */,
+				F4B44282759A680DCE766A93 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -169,6 +198,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C6B846193AE3B1A182A96531 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MAD2_ASG-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4B44282759A680DCE766A93 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MAD2_ASG/Pods-MAD2_ASG-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MAD2_ASG/Pods-MAD2_ASG-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MAD2_ASG/Pods-MAD2_ASG-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BDE9D0FE279AD881009631C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -176,6 +247,7 @@
 			files = (
 				BDB2C81B27A077AE00E5E9C1 /* ModelClass.swift in Sources */,
 				BDE9D10A279AD881009631C4 /* ViewController.swift in Sources */,
+				0F4ED18027A0FD1B00A76E3A /* LoginValidateViewController.swift in Sources */,
 				BDE9D106279AD881009631C4 /* AppDelegate.swift in Sources */,
 				BDB2C81827A06EEB00E5E9C1 /* SearchViewController.swift in Sources */,
 				BDE9D108279AD881009631C4 /* SceneDelegate.swift in Sources */,
@@ -326,6 +398,7 @@
 		};
 		BDE9D11A279AD883009631C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56454ACBA4C95331D6B605D2 /* Pods-MAD2_ASG.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -345,6 +418,7 @@
 		};
 		BDE9D11B279AD883009631C4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D91CF1A71125A536CCC7B6D /* Pods-MAD2_ASG.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
