@@ -17,43 +17,37 @@
 
 import Foundation
 import Alamofire
-
 // MARK: - Welcome
 struct Root: Codable {
     let result, response: String
-    let data: [Data]
+    let data: [Result]
     let limit, offset, total: Int
 }
 
 // MARK: - Datum
-struct Data: Codable {
+struct Result: Codable {
     let id, type: String
     let attributes: MangaDetails
-    let relationships: [Relationship]
 }
 
 
 // MARK: - Manga
 struct MangaDetails: Codable {
     let title: Title
-    let altTitles: [AltTitle]
     let attributesDescription: Description
-    let isLocked: Bool
-    let links: Links
-    let originalLanguage, lastVolume, lastChapter, publicationDemographic: String
+    let originalLanguage, lastVolume, lastChapter: String
     let status: String
     let year: Int
     let contentRating: String
-    let tags: [Tag]
     let state: String
     let chapterNumbersResetOnNewVolume: Bool
     let createdAt, updatedAt: Date
     let version: Int
 
     enum CodingKeys: String, CodingKey {
-        case title, altTitles
+        case title
         case attributesDescription = "description"
-        case isLocked, links, originalLanguage, lastVolume, lastChapter, publicationDemographic, status, year, contentRating, tags, state, chapterNumbersResetOnNewVolume, createdAt, updatedAt, version
+        case originalLanguage, lastVolume, lastChapter, status, year, contentRating, state, chapterNumbersResetOnNewVolume, createdAt, updatedAt, version
     }
 }
 
@@ -85,26 +79,26 @@ func newJSONEncoder() -> JSONEncoder {
 
 // MARK: - Alamofire response handlers
 
-extension DataRequest {
-    fileprivate func decodableResponseSerializer<T: Decodable>() -> DataResponseSerializer<T> {
-        return DataResponseSerializer { _, response, data, error in
-            guard error == nil else { return .failure(error!) }
-
-            guard let data = data else {
-                return .failure(AFError.responseSerializationFailed(reason: .inputDataNil))
-            }
-
-            return Result { try newJSONDecoder().decode(T.self, from: data) }
-        }
-    }
-
-    @discardableResult
-    fileprivate func responseDecodable<T: Decodable>(queue: DispatchQueue? = nil, completionHandler: @escaping (DataResponse<T>) -> Void) -> Self {
-        return response(queue: queue, responseSerializer: decodableResponseSerializer(), completionHandler: completionHandler)
-    }
-
-    @discardableResult
-    func responseWelcome(queue: DispatchQueue? = nil, completionHandler: @escaping (DataResponse<Welcome>) -> Void) -> Self {
-        return responseDecodable(queue: queue, completionHandler: completionHandler)
-    }
-}
+//extension DataRequest {
+//    fileprivate func decodableResponseSerializer<T: Decodable>() -> DataResponseSerializer<T> {
+//        return DataResponseSerializer { _, response, data, error in
+//            guard error == nil else { return .failure(error!) }
+//
+//            guard let data = data else {
+//                return .failure(AFError.responseSerializationFailed(reason: .inputDataNil))
+//            }
+//
+//            return Result { try newJSONDecoder().decode(T.self, from: data) }
+//        }
+//    }
+//
+//    @discardableResult
+//    fileprivate func responseDecodable<T: Decodable>(queue: DispatchQueue? = nil, completionHandler: @escaping (DataResponse<T>) -> Void) -> Self {
+//        return response(queue: queue, responseSerializer: decodableResponseSerializer(), completionHandler: completionHandler)
+//    }
+//
+//    @discardableResult
+//    func responseWelcome(queue: DispatchQueue? = nil, completionHandler: @escaping (DataResponse<Welcome>) -> Void) -> Self {
+//        return responseDecodable(queue: queue, completionHandler: completionHandler)
+//    }
+//}

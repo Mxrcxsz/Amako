@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wb9-sE-gNj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RP4-3u-s0w">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -195,6 +195,7 @@
         <!--Login Validate View Controller-->
         <scene sceneID="LYW-g0-g0R">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hsE-xi-nJF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="9EQ-Ty-Bdo" customClass="LoginValidateViewController" customModule="MAD2_ASG" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kpo-Oc-rmM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -238,9 +239,8 @@
                         <outlet property="passwordFld" destination="faN-2b-7RD" id="4nP-pQ-oqz"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hsE-xi-nJF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="744.92753623188412" y="87.723214285714278"/>
+            <point key="canvasLocation" x="3081" y="1507"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vkM-2x-bhx">
@@ -280,24 +280,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJn-Aj-xUV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2921.739130434783" y="75.669642857142847"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="h7E-pa-0KG">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wb9-sE-gNj" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yLk-qJ-WrV">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="9EQ-Ty-Bdo" kind="relationship" relationship="rootViewController" id="74a-TT-suM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wbH-PM-rBN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-165.21739130434784" y="87.723214285714278"/>
         </scene>
     </scenes>
     <resources>

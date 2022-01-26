@@ -8,6 +8,6 @@ target 'MAD2_ASG' do
   # Pods for MAD2_ASG
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
-pod 'Firebase/Database'
+pod 'Alamofire'
 
 end
