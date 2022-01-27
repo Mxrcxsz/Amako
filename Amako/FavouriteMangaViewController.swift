@@ -1,5 +1,5 @@
 //
-//  MangaCollectionViewController.swift
+//  FavouriteMangaViewController.swift
 //  Amako
 //
 //  Created by Amosy . on 27/1/22.
@@ -9,27 +9,12 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class MangaCollectionViewController: UICollectionViewController {
+class FavouriteMangaViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        title = ""
-        configureItem()
-    }
-    private func configureItem(){
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .bookmarks, target: self, action: nil
-        )
-    }
-    @objc func favouriteMangaButton() {
-        let vc = MangaCollectionViewController()
-        vc.title = "Favourite"
-        vc.view.backgroundColor = .systemBlue
-        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .save, target: self, action: nil
-        )
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
