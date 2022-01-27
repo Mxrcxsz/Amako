@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F1D009D27A2A8800056D338 /* MangaCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D009C27A2A8800056D338 /* MangaCollectionViewController.swift */; };
+		0F1D009F27A2D5420056D338 /* MangaSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D009E27A2D5420056D338 /* MangaSearchViewController.swift */; };
 		71053557315B436424D78D90 /* Pods_Amako.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2031E7A89A05CB82984A57D /* Pods_Amako.framework */; };
 		E724C42027A1C0FB00539EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724C41F27A1C0FB00539EB0 /* AppDelegate.swift */; };
 		E724C42227A1C0FB00539EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724C42127A1C0FB00539EB0 /* SceneDelegate.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F1D009C27A2A8800056D338 /* MangaCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaCollectionViewController.swift; sourceTree = "<group>"; };
+		0F1D009E27A2D5420056D338 /* MangaSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaSearchViewController.swift; sourceTree = "<group>"; };
 		784338FCD1C28107B7E72D4A /* Pods-Amako.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amako.release.xcconfig"; path = "Target Support Files/Pods-Amako/Pods-Amako.release.xcconfig"; sourceTree = "<group>"; };
 		7C5486A9929D134AD334E2BC /* Pods-Amako.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amako.debug.xcconfig"; path = "Target Support Files/Pods-Amako/Pods-Amako.debug.xcconfig"; sourceTree = "<group>"; };
 		E724C41C27A1C0FB00539EB0 /* Amako.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amako.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +98,8 @@
 				E724C42127A1C0FB00539EB0 /* SceneDelegate.swift */,
 				E724C42327A1C0FB00539EB0 /* ViewController.swift */,
 				E724C42527A1C0FB00539EB0 /* Main.storyboard */,
+				0F1D009E27A2D5420056D338 /* MangaSearchViewController.swift */,
+				0F1D009C27A2A8800056D338 /* MangaCollectionViewController.swift */,
 				E724C42B27A1C0FD00539EB0 /* Assets.xcassets */,
 				E724C42D27A1C0FD00539EB0 /* LaunchScreen.storyboard */,
 				E724C43027A1C0FD00539EB0 /* Info.plist */,
@@ -220,7 +226,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E724C43B27A1C41900539EB0 /* FirebaseAuthManager.swift in Sources */,
+				0F1D009D27A2A8800056D338 /* MangaCollectionViewController.swift in Sources */,
 				E724C42427A1C0FB00539EB0 /* ViewController.swift in Sources */,
+				0F1D009F27A2D5420056D338 /* MangaSearchViewController.swift in Sources */,
 				E724C43727A1C1A000539EB0 /* AccountViewController.swift in Sources */,
 				E724C42027A1C0FB00539EB0 /* AppDelegate.swift in Sources */,
 				E724C42227A1C0FB00539EB0 /* SceneDelegate.swift in Sources */,
