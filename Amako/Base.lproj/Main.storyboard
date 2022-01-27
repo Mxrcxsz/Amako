@@ -43,7 +43,7 @@
         <!--FAVOURITE-->
         <scene sceneID="JFx-Zp-jKF">
             <objects>
-                <collectionViewController id="hPh-Px-kHl" customClass="MangaCollectionViewController" customModule="Amako" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="hPh-Px-kHl" customClass="FavouriteMangaViewController" customModule="Amako" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="hlo-6w-wSK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,7 +132,7 @@
         <!--HISTORY-->
         <scene sceneID="CO8-WE-XM5">
             <objects>
-                <collectionViewController id="Ofi-zm-Dg8" sceneMemberID="viewController">
+                <collectionViewController id="Ofi-zm-Dg8" customClass="MangaHistoryViewController" customModule="Amako" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="r4p-KA-WuV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
