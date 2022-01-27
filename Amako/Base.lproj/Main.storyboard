@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Manga-->
+        <!--MANGA-->
         <scene sceneID="bUK-QE-bfP">
             <objects>
                 <viewController id="tb6-h9-BeV" customClass="MangaSearchViewController" customModule="Amako" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,13 +34,13 @@
                         <viewLayoutGuide key="safeArea" id="nI1-Th-IzR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Manga" id="4Ra-Hj-4xt"/>
+                    <navigationItem key="navigationItem" title="MANGA" id="4Ra-Hj-4xt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5v1-s6-dxJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2902.898550724638" y="624.77678571428567"/>
         </scene>
-        <!--Manga Collection View Controller-->
+        <!--FAVOURITE-->
         <scene sceneID="JFx-Zp-jKF">
             <objects>
                 <collectionViewController id="hPh-Px-kHl" customClass="MangaCollectionViewController" customModule="Amako" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,13 +69,46 @@
                             <outlet property="delegate" destination="hPh-Px-kHl" id="hIn-p0-V1N"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="Nfc-5T-NxA">
-                        <barButtonItem key="leftBarButtonItem" title="Favourite" id="Tt7-oB-I90"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="FAVOURITE" id="Nfc-5T-NxA"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uyk-8h-mXd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2903" y="1385"/>
+        </scene>
+        <!--HISTORY-->
+        <scene sceneID="CO8-WE-XM5">
+            <objects>
+                <collectionViewController id="Ofi-zm-Dg8" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="r4p-KA-WuV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f6u-Fa-vAa">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="k8Z-Kd-Hmf">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0Cx-Ej-5dU">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Ofi-zm-Dg8" id="P3Q-59-nbf"/>
+                            <outlet property="delegate" destination="Ofi-zm-Dg8" id="2KJ-Vf-mCl"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="HISTORY" id="8lJ-AU-PuP"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="52i-s6-Roz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2903" y="2058"/>
         </scene>
         <!--Account-->
         <scene sceneID="jsx-8f-yVx">
@@ -154,6 +187,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="mCU-i4-xb4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sDV-KV-HoP">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -161,11 +195,12 @@
                         <segue destination="6tl-Na-N10" kind="relationship" relationship="viewControllers" id="6aq-CV-Zac"/>
                         <segue destination="tMw-57-hAK" kind="relationship" relationship="viewControllers" id="Mfl-vS-Eyf"/>
                         <segue destination="nRX-U5-YaF" kind="relationship" relationship="viewControllers" id="Yx6-BP-Lc3"/>
+                        <segue destination="PYt-SN-KRn" kind="relationship" relationship="viewControllers" id="G4p-q8-RNC"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNi-GD-qVX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1065" y="787"/>
+            <point key="canvasLocation" x="894" y="1477"/>
         </scene>
         <!--Manga-->
         <scene sceneID="dRY-sb-06v">
@@ -186,11 +221,11 @@
             </objects>
             <point key="canvasLocation" x="2069.5652173913045" y="624.77678571428567"/>
         </scene>
-        <!--Bookmark-->
+        <!--Favourite-->
         <scene sceneID="e2c-4A-0Z2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nRX-U5-YaF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Bookmark" id="3y2-dJ-PSn"/>
+                    <tabBarItem key="tabBarItem" title="Favourite" id="3y2-dJ-PSn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bGa-ZL-8iH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -204,6 +239,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WgJ-Rl-NJ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2070" y="1385"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="5TC-o1-95a">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PYt-SN-KRn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="History" id="C98-CV-8cK"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iXR-Ax-YxB">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ofi-zm-Dg8" kind="relationship" relationship="rootViewController" id="wi3-RP-Ib2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JBJ-o9-pMk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2070" y="2058"/>
         </scene>
     </scenes>
     <resources>
