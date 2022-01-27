@@ -14,6 +14,7 @@
 		0F7DB1AD27A1620D006BA6D6 /* AccountPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7DB1AC27A1620D006BA6D6 /* AccountPageViewController.swift */; };
 		19CB52A827A00F7300ABB675 /* MangaDex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB52A727A00F7300ABB675 /* MangaDex.swift */; };
 		19CB52AE27A0141400ABB675 /* PagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB52AD27A0141400ABB675 /* PagesCollectionViewController.swift */; };
+		19CB52DB27A27C8300ABB675 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB52DA27A27C8300ABB675 /* PageCollectionViewCell.swift */; };
 		709E697137C884CEE34DA824 /* Pods_MAD2_ASG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77C17EBB68B0D799214652DC /* Pods_MAD2_ASG.framework */; };
 		BDB2C81827A06EEB00E5E9C1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2C81727A06EEB00E5E9C1 /* SearchViewController.swift */; };
 		BDB2C81B27A077AE00E5E9C1 /* ModelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2C81A27A077AE00E5E9C1 /* ModelClass.swift */; };
@@ -34,6 +35,7 @@
 		0F7DB1AC27A1620D006BA6D6 /* AccountPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPageViewController.swift; sourceTree = "<group>"; };
 		19CB52A727A00F7300ABB675 /* MangaDex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangaDex.swift; sourceTree = "<group>"; };
 		19CB52AD27A0141400ABB675 /* PagesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesCollectionViewController.swift; sourceTree = "<group>"; };
+		19CB52DA27A27C8300ABB675 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		607E253DD88E44BD54C4B117 /* Pods-MAD2_ASG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAD2_ASG.release.xcconfig"; path = "Target Support Files/Pods-MAD2_ASG/Pods-MAD2_ASG.release.xcconfig"; sourceTree = "<group>"; };
 		77C17EBB68B0D799214652DC /* Pods_MAD2_ASG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAD2_ASG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB2C81727A06EEB00E5E9C1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				BDE9D107279AD881009631C4 /* SceneDelegate.swift */,
 				BDE9D109279AD881009631C4 /* ViewController.swift */,
 				BDE9D10B279AD882009631C4 /* Main.storyboard */,
+				19CB52DA27A27C8300ABB675 /* PageCollectionViewCell.swift */,
 				0F7DB1AC27A1620D006BA6D6 /* AccountPageViewController.swift */,
 				0F4ED17F27A0FD1B00A76E3A /* LoginValidateViewController.swift */,
 				19CB52AD27A0141400ABB675 /* PagesCollectionViewController.swift */,
@@ -251,9 +254,9 @@
 				BDE9D106279AD881009631C4 /* AppDelegate.swift in Sources */,
 				BDB2C81827A06EEB00E5E9C1 /* SearchViewController.swift in Sources */,
 				BDE9D108279AD881009631C4 /* SceneDelegate.swift in Sources */,
+				19CB52DB27A27C8300ABB675 /* PageCollectionViewCell.swift in Sources */,
 				19CB52A827A00F7300ABB675 /* MangaDex.swift in Sources */,
 				BDE9D110279AD882009631C4 /* MAD2_ASG.xcdatamodeld in Sources */,
-				19CB52AA27A0116B00ABB675 /* PageCollectionViewCell.swift in Sources */,
 				0F7DB1AD27A1620D006BA6D6 /* AccountPageViewController.swift in Sources */,
 				19CB52AE27A0141400ABB675 /* PagesCollectionViewController.swift in Sources */,
 			);

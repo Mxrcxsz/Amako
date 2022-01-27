@@ -1,28 +1,50 @@
 //
-//  PagesCollectionViewController.swift
-//  MAD2_ASG
+//  PagesCoectionViewController.swift
+//  ASG Test
 //
-//  Created by Darius Kong on 25/1/22.
+//  Created by Darius Kong on 26/1/22.
 //
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+extension UIImageView {
+    func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() { [weak self] in
+                self?.image = image
+            }
+        }.resume()
+    }
+    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        downloaded(from: url, contentMode: mode)
+    }
+}
+
 
 class PagesCollectionViewController: UICollectionViewController {
     
-    let mangadexCon = MangaDex()
-
-    override func viewDidLoad() {
+    var pictureHashList = Array<String>()
+    var chapterHash = "lol"
+    var mangadexCon = MangaDex()
+    
+      override func viewDidLoad() {
         super.viewDidLoad()
+        GetPages(mangaChapterHash: "28b5ed48-0dc3-4484-a0df-6d7f0063bdff")
+         
         
-        mangadexCon.GetPages(chapterHash: "28b5ed48-0dc3-4484-a0df-6d7f0063bdff")
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -41,20 +63,21 @@ class PagesCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return pictureHashList.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PageCell", for: indexPath) as! PageCollectionViewCell
+        //cell.pictureLbl.text = chapterHash
+        cell.pictureView.contentMode = .scaleToFill
+        cell.pictureView.downloaded(from: imgLinkBuilder(index: indexPath.row))
+        
         return cell
     }
 
@@ -88,5 +111,38 @@ class PagesCollectionViewController: UICollectionViewController {
     
     }
     */
+    func GetPages(mangaChapterHash:String){
+        let urlPath = "https://api.mangadex.org/at-home/server/" + mangaChapterHash //"28b5ed48-0dc3-4484-a0df-6d7f0063bdff"
+        let url = URL(string: urlPath)!
+        let session = URLSession.shared
 
+        session.dataTask(with: url){ data, response, error in
+           guard let data = data, error == nil else {
+                print(error?.localizedDescription)
+                return
+            }
+            do {
+                if let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]{
+
+                        let pageList = jsonResult["chapter"]
+                        let shittychapterHash = pageList!["hash"]
+                        let shittypictureHashList = pageList!["data"]
+                        
+                        self.pictureHashList = shittypictureHashList!! as! [String]
+                        self.chapterHash = shittychapterHash as! String
+                        print(self.chapterHash)
+                }
+            } catch let parseError {
+                print("JSON Error \(parseError.localizedDescription)")
+            }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }.resume()
+    }
+    
+    func imgLinkBuilder(index:Int)->String{
+        let urlPath = "https://uploads.mangadex.org/data/" + chapterHash + "/" + pictureHashList[index]
+        return urlPath
+    }
 }

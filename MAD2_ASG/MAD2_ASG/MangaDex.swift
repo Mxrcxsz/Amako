@@ -8,6 +8,7 @@
 import UIKit
 
 class MangaDex{
+    // NOTE!!!! THIS ENTIRE FILE IS CURRENTLY NOT IN USE
     let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
     
     func GetPages(chapterHash:String){
