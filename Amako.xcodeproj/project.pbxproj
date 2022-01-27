@@ -133,6 +133,8 @@
 			dependencies = (
 			);
 			name = Amako;
+			packageProductDependencies = (
+			);
 			productName = Amako;
 			productReference = E724C41C27A1C0FB00539EB0 /* Amako.app */;
 			productType = "com.apple.product-type.application";
@@ -161,6 +163,8 @@
 				Base,
 			);
 			mainGroup = E724C41327A1C0FB00539EB0;
+			packageReferences = (
+			);
 			productRefGroup = E724C41D27A1C0FB00539EB0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

@@ -7,60 +7,98 @@
 
 import UIKit
 
-extension UIImageView {
-    func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() { [weak self] in
-                self?.image = image
+
+class PagesCollectionViewController: UICollectionViewController {
+    var pageList = Array<String>()
+    var chapterHash = ""
+    var nextchapterHash = ""
+    var currChapter = 1
+    var nextChapter = 0
+    var totalRows = 0
+    var currRow = 0
+    var waiting = false
+    
+      override func viewDidLoad() {
+          super.viewDidLoad()
+          nextChapter = currChapter + 1
+          getAllChapters(mangaID: "0d545e62-d4cd-4e65-a65c-a5c46b794918")
+         
+    }
+    
+    //For MangaDex
+    func getAllChapters(mangaID:String){
+        let urlPath = "https://api.mangadex.org/chapter?manga=" + mangaID + "&order[chapter]=asc&translatedLanguage[]=en&offset=0&excludedGroups[]=4f1de6a2-f0c5-4ac5-bce5-02c7dbb67deb&limit=100"
+        let url = URL(string: urlPath)!
+        let session = URLSession.shared
+        var chapterID = ""
+
+        session.dataTask(with: url){ data, response, error in
+           guard let data = data, error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            do {
+                if let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]{
+                    let chaptersList = jsonResult["data"]
+                    let correctIndex = self.currChapter-1
+                    chapterID = chaptersList![correctIndex]!.value(forKey: "id") as! String
+                    print("Current chapter id: " + chapterID)
+                }
+            } catch let parseError {
+                print("JSON Error \(parseError.localizedDescription)")
+            }
+            DispatchQueue.main.sync {
+                self.GetPages(mangaChapterHash: chapterID)
             }
         }.resume()
     }
-    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloaded(from: url, contentMode: mode)
-    }
-}
-
-
-class PagesCollectionViewController: UICollectionViewController {
-    var pictureHashList = Array<String>()
-    var chapterHash = ""
-    var currChapter = 1
-    var totalRows = 0
-    var currRow = 0
     
-      override func viewDidLoad() {
-        super.viewDidLoad()
-        //GetPages(mangaChapterHash: "d1e7f729-634d-4fa0-b93e-6fabcfa745f9")
-          getAllChapters(mangaHash: "0d545e62-d4cd-4e65-a65c-a5c46b794918")
-         
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+    func GetPages(mangaChapterHash:String){
+        let urlPath = "https://api.mangadex.org/at-home/server/" + mangaChapterHash
+        let url = URL(string: urlPath)!
+        let session = URLSession.shared
 
-        // Register cell classes
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        session.dataTask(with: url){ data, response, error in
+           guard let data = data, error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            do {
+                if let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]{
+                    let pageList = jsonResult["chapter"]
+                    let shittychapterHash = pageList!["hash"] as! String
+                    let shittypageList = pageList!["data"] as! [String]
+                    
+                    for i in shittypageList{
+                        self.pageList.append(i)
+                    }
+                    self.chapterHash = shittychapterHash
+                    //print(self.chapterHash)
+                }
+            } catch let parseError {
+                print("JSON Error \(parseError.localizedDescription)")
+            }
+            DispatchQueue.main.sync {
+                self.collectionView.reloadData()
+                self.waiting = false
+            }
+        }.resume()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    
+    //For MangaDex
+    func imgLinkBuilder(index:Int)->String{
+        let urlPath = "https://uploads.mangadex.org/data/" + chapterHash + "/" + pageList[index]
+        return urlPath
     }
-    */
-
+    
+    func updateNextSet(){
+        print("On Completetion")
+        currChapter+=1
+        getAllChapters(mangaID: "0d545e62-d4cd-4e65-a65c-a5c46b794918")
+        totalRows = 0
+        currRow = 0
+    }
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -71,17 +109,16 @@ class PagesCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return pictureHashList.count
+        return pageList.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PageCell", for: indexPath) as! PageCollectionViewCell
-        //cell.pictureLbl.text = chapterHash
         //this 2 are needed
         cell.pictureView.contentMode = .scaleToFill
         cell.pictureView.downloaded(from: imgLinkBuilder(index: indexPath.row))
         
-        if (totalRows != pictureHashList.count-1){
+        if (totalRows != pageList.count-1){
             totalRows = indexPath.row
         }
         else{
@@ -93,18 +130,11 @@ class PagesCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if currRow == collectionView.numberOfItems(inSection: indexPath.section)-1 {
+        if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section)-1 && !waiting {
+            print("getting more pages")
+            waiting = true
             self.updateNextSet()
         }
-    }
-
-    func updateNextSet(){
-        print("On Completetion")
-        currChapter+=1
-        getAllChapters(mangaHash: "0d545e62-d4cd-4e65-a65c-a5c46b794918")
-        DispatchQueue.main.async(execute: collectionView.reloadData)
-        totalRows = 0
-        currRow = 0
     }
 
     // MARK: UICollectionViewDelegate
@@ -137,67 +167,25 @@ class PagesCollectionViewController: UICollectionViewController {
     
     }
     */
-    
-    //For MangaDex
-    func getAllChapters(mangaHash:String){
-        let urlPath = "https://api.mangadex.org/chapter?manga=" + mangaHash + "&order[chapter]=asc&translatedLanguage[]=en&offset=0&excludedGroups[]=4f1de6a2-f0c5-4ac5-bce5-02c7dbb67deb&limit=100"
-        let url = URL(string: urlPath)!
-        let session = URLSession.shared
-        var newHashID = ""
+}
 
-        session.dataTask(with: url){ data, response, error in
-           guard let data = data, error == nil else {
-                print(error?.localizedDescription)
-                return
-            }
-            do {
-                if let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]{
-                    let chaptersList = jsonResult["data"]
-                    let correctIndex = self.currChapter-1
-                    newHashID = chaptersList![correctIndex]!.value(forKey: "id") as! String
-                    print("new hash" + newHashID)
-                }
-            } catch let parseError {
-                print("JSON Error \(parseError.localizedDescription)")
-            }
-            DispatchQueue.main.async {
-                self.GetPages(mangaChapterHash: newHashID)
-            }
-        }.resume()
-    }
-    
-    func GetPages(mangaChapterHash:String){
-        let urlPath = "https://api.mangadex.org/at-home/server/" + mangaChapterHash
-        let url = URL(string: urlPath)!
-        let session = URLSession.shared
-
-        session.dataTask(with: url){ data, response, error in
-           guard let data = data, error == nil else {
-                print(error?.localizedDescription)
-                return
-            }
-            do {
-                if let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]{
-                        let pageList = jsonResult["chapter"]
-                        let shittychapterHash = pageList!["hash"]
-                        let shittypictureHashList = pageList!["data"]
-                        
-                        self.pictureHashList = shittypictureHashList!! as! [String]
-                        self.chapterHash = shittychapterHash as! String
-                        //print(self.chapterHash)
-                }
-            } catch let parseError {
-                print("JSON Error \(parseError.localizedDescription)")
-            }
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }.resume()
-    }
-    
-    //For MangaDex
-    func imgLinkBuilder(index:Int)->String{
-        let urlPath = "https://uploads.mangadex.org/data/" + chapterHash + "/" + pictureHashList[index]
-        return urlPath
-    }
+extension UIImageView {
+//    func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
+//        contentMode = mode
+//        URLSession.shared.dataTask(with: url) { data, response, error in
+//            guard
+//                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+//                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+//                let data = data, error == nil,
+//                let image = UIImage(data: data)
+//                else { return }
+//            DispatchQueue.main.async() { [weak self] in
+//                self?.image = image
+//            }
+//        }.resume()
+//    }
+//    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
+//        guard let url = URL(string: link) else { return }
+//        downloaded(from: url, contentMode: mode)
+//    }
 }
