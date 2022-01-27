@@ -7,4 +7,5 @@ target 'Amako' do
 
   # Pods for Amako
 	pod 'Firebase/Auth'
+	pod 'Firebase/Database'
 end

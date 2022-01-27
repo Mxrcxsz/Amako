@@ -25,6 +25,9 @@ class FirebaseAuthManager {
             if let error = error, let _ = AuthErrorCode(rawValue: error._code) {
                 completionBlock(false)
             } else {
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.user = LoggedInUser(UserID: (result?.user.uid)! , EmailAddr: (result?.user.email)!)
+                print(appDelegate.user.userID)
                 completionBlock(true)
             }
         }

@@ -8,12 +8,10 @@
 import Foundation
 
 class LoggedInUser{
-    var username:String
     var userID:String
     var emailAddr:String
     
-    init(Username: String, UserID: String, EmailAddr: String){
-        username = Username
+    init(UserID: String, EmailAddr: String){
         userID = UserID
         emailAddr = EmailAddr
     }
