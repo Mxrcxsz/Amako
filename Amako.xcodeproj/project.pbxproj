@@ -13,7 +13,6 @@
 		0F1D00C327A3A28C0056D338 /* Manga.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D00C227A3A28C0056D338 /* Manga.swift */; };
 		0F1D00C527A3A3AF0056D338 /* MangaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D00C427A3A3AF0056D338 /* MangaController.swift */; };
 		0F1D00C727A3CC040056D338 /* FavouriteMangaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D00C627A3CC040056D338 /* FavouriteMangaViewCell.swift */; };
-		0F1D00CA27A3CFD80056D338 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0F1D00C927A3CFD80056D338 /* Kingfisher */; };
 		0F1D00CC27A4028A0056D338 /* searchMangaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D00CB27A402890056D338 /* searchMangaViewCell.swift */; };
 		0F1D00CE27A417D10056D338 /* HistoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D00CD27A417D10056D338 /* HistoryCollectionViewController.swift */; };
 		0F1D00D027A41CF30056D338 /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D00CF27A41CF30056D338 /* HistoryCollectionViewCell.swift */; };
@@ -30,7 +29,7 @@
 		E724C43727A1C1A000539EB0 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724C43627A1C19F00539EB0 /* AccountViewController.swift */; };
 		E724C43B27A1C41900539EB0 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724C43A27A1C41900539EB0 /* FirebaseAuthManager.swift */; };
 		E724C43D27A1CC0800539EB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E724C43C27A1CC0800539EB0 /* GoogleService-Info.plist */; };
-		E773320F27A4173C0032E506 /* Modal Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = E773320E27A4173C0032E506 /* Modal Class.swift */; };
+		E773320F27A4173C0032E506 /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +66,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F1D00CA27A3CFD80056D338 /* Kingfisher in Frameworks */,
 				71053557315B436424D78D90 /* Pods_Amako.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,15 +126,13 @@
 				0F1D00CB27A402890056D338 /* searchMangaViewCell.swift */,
 				19CB52DC27A2EB8C00ABB675 /* PageCollectionViewCell.swift */,
 				19CB52DE27A2EBAC00ABB675 /* PagesCollectionViewController.swift */,
-				0F1D00A627A2EF080056D338 /* FavouriteViewController.swift */,
 				0F1D009E27A2D5420056D338 /* SearchViewController.swift */,
 				E724C42B27A1C0FD00539EB0 /* Assets.xcassets */,
 				E724C42D27A1C0FD00539EB0 /* LaunchScreen.storyboard */,
 				E724C43027A1C0FD00539EB0 /* Info.plist */,
 				E724C42827A1C0FB00539EB0 /* Amako.xcdatamodeld */,
 				E724C43627A1C19F00539EB0 /* AccountViewController.swift */,
-				0F1D00A627A2EF080056D338 /* FavouriteMangaViewController.swift */,
-				E773320E27A4173C0032E506 /* Modal Class.swift */,
+				0F1D00A627A2EF080056D338 /* FavouriteViewController.swift */,
 			);
 			path = Amako;
 			sourceTree = "<group>";
@@ -160,7 +156,6 @@
 			);
 			name = Amako;
 			packageProductDependencies = (
-				0F1D00C927A3CFD80056D338 /* Kingfisher */,
 			);
 			productName = Amako;
 			productReference = E724C41C27A1C0FB00539EB0 /* Amako.app */;
@@ -191,7 +186,6 @@
 			);
 			mainGroup = E724C41327A1C0FB00539EB0;
 			packageReferences = (
-				0F1D00C827A3CFD80056D338 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = E724C41D27A1C0FB00539EB0 /* Products */;
 			projectDirPath = "";
@@ -277,7 +271,7 @@
 				E724C42027A1C0FB00539EB0 /* AppDelegate.swift in Sources */,
 				0F1D00D027A41CF30056D338 /* HistoryCollectionViewCell.swift in Sources */,
 				E724C42227A1C0FB00539EB0 /* SceneDelegate.swift in Sources */,
-				E773320F27A4173C0032E506 /* Modal Class.swift in Sources */,
+				E773320F27A4173C0032E506 /* (null) in Sources */,
 				0F1D00CE27A417D10056D338 /* HistoryCollectionViewController.swift in Sources */,
 				E724C42A27A1C0FB00539EB0 /* Amako.xcdatamodeld in Sources */,
 				19CB52DF27A2EBAC00ABB675 /* PagesCollectionViewController.swift in Sources */,
@@ -500,25 +494,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		0F1D00C827A3CFD80056D338 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0F1D00C927A3CFD80056D338 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0F1D00C827A3CFD80056D338 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E724C42827A1C0FB00539EB0 /* Amako.xcdatamodeld */ = {
