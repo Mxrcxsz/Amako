@@ -44,11 +44,9 @@ class FirebaseAuthManager {
                     let snap = snapshot.value as! NSDictionary
                     let favouriteList = snap["Favourites"] as! Manga
                     let username = snap["Username"] as! String
-                    
-                    
                     var user = User(UserID: uid, Username: username)
 //                    for i in favouriteList {
-//                        
+//
 //                    }
                     
                     print(user.userID)
