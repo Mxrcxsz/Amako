@@ -116,7 +116,7 @@ class PagesCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PageCell", for: indexPath) as! PageCollectionViewCell
         //this 2 are needed
         cell.pictureView.contentMode = .scaleToFill
-        cell.pictureView.downloaded(from: imgLinkBuilder(index: indexPath.row))
+//         cell.pictureView.downloaded(from: imgLinkBuilder(index: indexPath.row))
         
         if (totalRows != pageList.count-1){
             totalRows = indexPath.row

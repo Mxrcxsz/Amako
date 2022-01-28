@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 private let reuseIdentifier = "Cell"
 
 class FavouriteMangaViewController: UICollectionViewController {
-
+    var ref: DatabaseReference!
     override func viewDidLoad() {
             super.viewDidLoad()
             // Register cell classes
+            ref =  Database.database().reference()
             self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         }
 
@@ -26,8 +28,14 @@ class FavouriteMangaViewController: UICollectionViewController {
             return 12
         }
         override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        
+            let cell : UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! UICollectionViewCell
+            ref.child("Users").observe(.value, with: { snapshot in
+                guard let value = snapshot.value as? [String: Any] else{
+                    return
+                }
+                cell.largeContentImage
+                print("Value: \(value)")
+            })
             // Configure the cell
         
             return cell
