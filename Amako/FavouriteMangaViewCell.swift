@@ -10,5 +10,5 @@ import Kingfisher
 
 class FavouriteMangaViewCell: UICollectionViewCell{
     @IBOutlet weak var favMangaImage: UIImageView!
-    
+
 }

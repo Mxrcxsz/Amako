@@ -12,23 +12,28 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var mangaCollectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var mc = MangaController()
+    var list:[String]=[]
+    var mangaID:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mangaCollectionView.reloadData() //refresh data
         mangaCollectionView.dataSource = self
         mangaCollectionView.delegate = self
         searchBar.delegate = self
+        list = ["0d545e62-d4cd-4e65-a65c-a5c46b794918","72d1ae71-4391-4bb2-9f39-784af3cc3c71","1044287a-73df-48d0-b0b2-5327f32dd651","0d89de3b-454b-422e-9eed-c17402cf1604","7a9d76c3-42b9-4bcf-81d7-ad307d2ea971"]
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.mangaCollectionView.reloadData()
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    private func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -40,7 +45,8 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        print("tapped")
+        mangaID = list[indexPath.row]
+        mc.addToReadHistory(mangaID: mangaID!)
     }
 
 }
