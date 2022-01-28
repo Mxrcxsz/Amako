@@ -42,5 +42,4 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
         collectionView.deselectItem(at: indexPath, animated: true)
         print("tapped")
     }
-
 }
