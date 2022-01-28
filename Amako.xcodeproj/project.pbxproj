@@ -25,6 +25,7 @@
 		E724C43727A1C1A000539EB0 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724C43627A1C19F00539EB0 /* AccountViewController.swift */; };
 		E724C43B27A1C41900539EB0 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724C43A27A1C41900539EB0 /* FirebaseAuthManager.swift */; };
 		E724C43D27A1CC0800539EB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E724C43C27A1CC0800539EB0 /* GoogleService-Info.plist */; };
+		E773320F27A4173C0032E506 /* Modal Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = E773320E27A4173C0032E506 /* Modal Class.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		E724C43627A1C19F00539EB0 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		E724C43A27A1C41900539EB0 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		E724C43C27A1CC0800539EB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E773320E27A4173C0032E506 /* Modal Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Modal Class.swift"; sourceTree = "<group>"; };
 		F2031E7A89A05CB82984A57D /* Pods_Amako.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amako.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,6 +122,7 @@
 				E724C42827A1C0FB00539EB0 /* Amako.xcdatamodeld */,
 				E724C43627A1C19F00539EB0 /* AccountViewController.swift */,
 				0F1D00A627A2EF080056D338 /* FavouriteMangaViewController.swift */,
+				E773320E27A4173C0032E506 /* Modal Class.swift */,
 			);
 			path = Amako;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				E724C43727A1C1A000539EB0 /* AccountViewController.swift in Sources */,
 				E724C42027A1C0FB00539EB0 /* AppDelegate.swift in Sources */,
 				E724C42227A1C0FB00539EB0 /* SceneDelegate.swift in Sources */,
+				E773320F27A4173C0032E506 /* Modal Class.swift in Sources */,
 				E724C42A27A1C0FB00539EB0 /* Amako.xcdatamodeld in Sources */,
 				19CB52DF27A2EBAC00ABB675 /* PagesCollectionViewController.swift in Sources */,
 			);

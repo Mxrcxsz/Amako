@@ -8,6 +8,8 @@
 import UIKit
 
 class AccountViewController: UIViewController {
+    var appDelegate = (UIApplication.shared.delegate) as! AppDelegate
+    
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
     override func viewDidLoad() {

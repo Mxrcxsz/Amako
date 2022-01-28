@@ -41,19 +41,19 @@ class FirebaseAuthManager {
                     return;
                   }
                     
-                    let snap = snapshot.value as! NSDictionary
-                    let favouriteList = snap["Favourites"] as! Manga
+                    let snap = snapshot.value as! [String:AnyObject]
+//                    let favouriteList = snap["Favourites"] as! [Int:AnyObject]
                     let username = snap["Username"] as! String
                     
-                    
-                    var user = User(UserID: uid, Username: username)
-//                    for i in favouriteList {
-//                        
-//                    }
-                    
-                    print(user.userID)
-                    print(user.username)
-                    print(user.favourites[0])
+                    let user = User(UserID: uid, Username: username)
+                    for i in snap["Favourites"]! as! [NSDictionary]
+                    {
+                        print("Adding favourite")
+                        user.addfavourite(Manga: Manga(MangaID: i["mangaID"] as! String, FileName: i["fileName"] as? String))
+                    }
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.user = user
+                    print(appDelegate.user.favourites[1].mangaID!)
                 });
                 completionBlock(true)
             }
