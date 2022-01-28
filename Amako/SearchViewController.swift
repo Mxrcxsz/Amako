@@ -48,5 +48,4 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
         mangaID = list[indexPath.row]
         mc.addToReadHistory(mangaID: mangaID!)
     }
-
 }
