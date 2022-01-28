@@ -60,7 +60,6 @@ class MangaController{
     func deleteReadHistory()
     {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CDHistory")
-        fetchRequest.predicate = NSPredicate(format: "ANY mangaID= '0d545e62-d4cd-4e65-a65c-a5c46b794918' AND mangaID= '72d1ae71-4391-4bb2-9f39-784af3cc3c71'")
         let context = appDelegate.persistentContainer.viewContext
         if let result = try? context.fetch(fetchRequest) {
             for object in result {

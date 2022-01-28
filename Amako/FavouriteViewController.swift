@@ -7,7 +7,6 @@
 
 import UIKit
 import FirebaseDatabase
-import Kingfisher
 
 private let reuseIdentifier = "Cell"
 

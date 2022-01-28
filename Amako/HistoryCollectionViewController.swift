@@ -18,6 +18,7 @@ class HistoryCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
+        historyList = mc.retrieveReadHistory()
         self.collectionView.reloadData()
     }
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -41,7 +42,7 @@ class HistoryCollectionViewController: UICollectionViewController {
         let alertView = UIAlertController(title: "Confirm", message: "Delete read history?", preferredStyle: UIAlertController.Style.alert)
         
         alertView.addAction(UIAlertAction(title: "Confirm", style: UIAlertAction.Style.default, handler: { _ in
-//            self.mc.deleteReadHistory()
+            self.mc.deleteReadHistory()
             self.historyList.removeAll()
             self.collectionView.reloadData()
             self.doneAlert()
