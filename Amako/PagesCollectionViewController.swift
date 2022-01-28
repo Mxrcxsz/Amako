@@ -10,19 +10,63 @@ import UIKit
 
 class PagesCollectionViewController: UICollectionViewController {
     var pageList = Array<String>()
+    var chapterIDList = Dictionary<Int,String>()
     var chapterHash = ""
     var nextchapterHash = ""
     var currChapter = 1
-    var nextChapter = 0
-    var totalRows = 0
-    var currRow = 0
+    var currPage = 0
+    var firstCheck = 0
     var waiting = false
     
-      override func viewDidLoad() {
-          super.viewDidLoad()
-          nextChapter = currChapter + 1
-          getAllChapters(mangaID: "0d545e62-d4cd-4e65-a65c-a5c46b794918")
-         
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getAllChapters(mangaID: "1044287a-73df-48d0-b0b2-5327f32dd651")
+    }
+
+    // MARK: UICollectionViewDataSource
+
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of items
+        return pageList.count
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PageCell", for: indexPath) as! PageCollectionViewCell
+        //this 2 are needed
+        cell.pictureView.contentMode = .scaleToFill
+        cell.pictureView.downloaded(from: imgLinkBuilder(index: indexPath.row))
+        
+        if firstCheck != pageList.count-1{
+            firstCheck = indexPath.row
+        }
+        else{
+            currPage = indexPath.row
+        }
+        
+        print("Current page is " + String(currPage) + " Stupid Index is " + String(indexPath.row))
+        return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if currPage == collectionView.numberOfItems(inSection: indexPath.section)-1 && !waiting {
+            print("getting more pages")
+            self.updateNextSet()
+        }
+    }
+    
+    func updateNextSet(){
+        waiting = true
+        currChapter+=1
+        getAllChapters(mangaID: "1044287a-73df-48d0-b0b2-5327f32dd651")
+        DispatchQueue.main.async(execute: collectionView.reloadData)
+        self.collectionView.setContentOffset(CGPoint(x:0,y:0), animated: true)
+        currPage = 0
     }
     
     //For MangaDex
@@ -30,7 +74,6 @@ class PagesCollectionViewController: UICollectionViewController {
         let urlPath = "https://api.mangadex.org/chapter?manga=" + mangaID + "&order[chapter]=asc&translatedLanguage[]=en&offset=0&excludedGroups[]=4f1de6a2-f0c5-4ac5-bce5-02c7dbb67deb&limit=100"
         let url = URL(string: urlPath)!
         let session = URLSession.shared
-        var chapterID = ""
 
         session.dataTask(with: url){ data, response, error in
            guard let data = data, error == nil else {
@@ -39,20 +82,25 @@ class PagesCollectionViewController: UICollectionViewController {
             }
             do {
                 if let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject]{
-                    let chaptersList = jsonResult["data"]
-                    let correctIndex = self.currChapter-1
-                    chapterID = chaptersList![correctIndex]!.value(forKey: "id") as! String
-                    print("Current chapter id: " + chapterID)
+                    let jsonData = jsonResult["data"]
+                    var index = 0
+                    for chapterID in jsonData!.value(forKey: "id") as! [String]
+                    {
+                        self.chapterIDList[index] = chapterID
+                        print(self.chapterIDList[index]!)
+                        index += 1
+                    }
+                    print(self.chapterIDList.count)
                 }
             } catch let parseError {
                 print("JSON Error \(parseError.localizedDescription)")
             }
             DispatchQueue.main.sync {
-                self.GetPages(mangaChapterHash: chapterID)
+                self.GetPages(mangaChapterHash: self.chapterIDList[self.currChapter-1]!)
             }
         }.resume()
     }
-    
+        
     func GetPages(mangaChapterHash:String){
         let urlPath = "https://api.mangadex.org/at-home/server/" + mangaChapterHash
         let url = URL(string: urlPath)!
@@ -90,100 +138,24 @@ class PagesCollectionViewController: UICollectionViewController {
         let urlPath = "https://uploads.mangadex.org/data/" + chapterHash + "/" + pageList[index]
         return urlPath
     }
-    
-    func updateNextSet(){
-        print("On Completetion")
-        currChapter+=1
-        getAllChapters(mangaID: "0d545e62-d4cd-4e65-a65c-a5c46b794918")
-        totalRows = 0
-        currRow = 0
-    }
-    
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return pageList.count
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PageCell", for: indexPath) as! PageCollectionViewCell
-        //this 2 are needed
-        cell.pictureView.contentMode = .scaleToFill
-//         cell.pictureView.downloaded(from: imgLinkBuilder(index: indexPath.row))
-        
-        if (totalRows != pageList.count-1){
-            totalRows = indexPath.row
-        }
-        else{
-            currRow=indexPath.row
-        }
-
-        print("lollol " + String(currRow) + "total " + String(totalRows))
-        return cell
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section)-1 && !waiting {
-            print("getting more pages")
-            waiting = true
-            self.updateNextSet()
-        }
-    }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
 }
 
 extension UIImageView {
-//    func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
-//        contentMode = mode
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            guard
-//                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-//                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-//                let data = data, error == nil,
-//                let image = UIImage(data: data)
-//                else { return }
-//            DispatchQueue.main.async() { [weak self] in
-//                self?.image = image
-//            }
-//        }.resume()
-//    }
+    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() { [weak self] in
+                self?.image = image
+            }
+        }.resume()
+    }
 //    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
 //        guard let url = URL(string: link) else { return }
 //        downloaded(from: url, contentMode: mode)
