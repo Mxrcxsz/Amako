@@ -299,6 +299,7 @@
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="130" height="242"/>
                                 <connections>
+                                    <outlet property="labelFld" destination="seE-Rk-vPK" id="FMg-Se-Gkf"/>
                                     <outlet property="mangaImg" destination="ONK-QL-L9T" id="mtq-17-teR"/>
                                 </connections>
                             </collectionViewCell>
@@ -308,7 +309,13 @@
                             <outlet property="delegate" destination="Ofi-zm-Dg8" id="2KJ-Vf-mCl"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="HISTORY" id="8lJ-AU-PuP"/>
+                    <navigationItem key="navigationItem" title="HISTORY" id="8lJ-AU-PuP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="Fed-b9-bnb">
+                            <connections>
+                                <action selector="deleteBtn:" destination="Ofi-zm-Dg8" id="cJa-Nl-J4z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52i-s6-Roz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
