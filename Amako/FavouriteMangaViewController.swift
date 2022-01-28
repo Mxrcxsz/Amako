@@ -28,14 +28,7 @@ class FavouriteMangaViewController: UICollectionViewController {
             return 12
         }
         override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell : UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! UICollectionViewCell
-            ref.child("Users").observe(.value, with: { snapshot in
-                guard let value = snapshot.value as? [String: Any] else{
-                    return
-                }
-                cell.largeContentImage
-                print("Value: \(value)")
-            })
+            let cell : UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) 
             // Configure the cell
         
             return cell

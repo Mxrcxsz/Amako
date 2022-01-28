@@ -9,13 +9,11 @@ import Foundation
 
 class Manga{
     var mangaID:String?
-    var mangaName:String?
     var fileName:String?
     
-    init(MangaID:String, MangaName:String, FileName:String?)
+    init(MangaID:String, FileName:String?)
     {
         self.mangaID = MangaID
-        self.mangaName = MangaName
         self.fileName = FileName
     }
 }
