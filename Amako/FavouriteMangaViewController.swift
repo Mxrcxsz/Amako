@@ -20,31 +20,25 @@ class FavouriteMangaViewController: UICollectionViewController,UICollectionViewD
             self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         }
 
-        override func numberOfSections(in collectionView: UICollectionView) -> Int {
-            // #warning Incomplete implementation, return the number of sections
-            return 1
-        }
-        override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            // #warning Incomplete implementation, return the number of items
-            return 5
-        }
-        override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mangaCell", for: indexPath) as! FavouriteMangaViewCell
-            let url = URL(string: "https://uploads.mangadex.org/covers/1044287a-73df-48d0-b0b2-5327f32dd651/b625ddac-757c-44a4-a392-b315ccdf4fb2.jpg")
-            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            cell.favMangaImage.image = UIImage(data: data!)
-            let size = cell.favMangaImage.image?.size
-            // Figure out what our orientation is, and use that to form the rectangle
-            var newSize: CGSize
-            newSize = CGSize(width: (size?.width)!*100, height: (size?.height)!*100)
-            let rect = CGRect(origin: .zero, size: newSize)
-            cell.favMangaImage.image?.draw(in: rect)
-            return cell
-        }
-        override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            collectionView.deselectItem(at: indexPath, animated: true)
-            print("tapped")
-        }
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of items
+        return 5
+    }
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mangaCell", for: indexPath) as! FavouriteMangaViewCell
+        let url = URL(string: "https://uploads.mangadex.org/covers/1044287a-73df-48d0-b0b2-5327f32dd651/b625ddac-757c-44a4-a392-b315ccdf4fb2.jpg")
+        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+        cell.favMangaImage.image = UIImage(data: data!)
+        return cell
+    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        print("tapped")
+    }
     // MARK: UICollectionViewDelegate
 
     /*
