@@ -8,7 +8,7 @@
 import UIKit
 
 
-class PagesCollectionViewController: UICollectionViewController {
+class PagesCollectionViewController: UICollectionViewController, UIGestureRecognizerDelegate {
     var pageList = Array<String>()
     var chapterIDList = Dictionary<Int,String>()
     var chapterHash = ""
@@ -16,11 +16,13 @@ class PagesCollectionViewController: UICollectionViewController {
     var currChapter = 1
     var currPage = 0
     var firstCheck = 0
-    var waiting = false
+    var canLoad = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getAllChapters(mangaID: "1044287a-73df-48d0-b0b2-5327f32dd651")
+        print("current chapter " + String(currChapter))
     }
 
     // MARK: UICollectionViewDataSource
@@ -49,27 +51,49 @@ class PagesCollectionViewController: UICollectionViewController {
             currPage = indexPath.row
         }
         
-        print("Current page is " + String(currPage) + " Stupid Index is " + String(indexPath.row))
+        //print("Current page is " + String(currPage) + " Stupid Index is " + String(indexPath.row))
         return cell
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-       let height = scrollView.frame.size.height
-       let contentYoffset = scrollView.contentOffset.y
-       let distanceFromBottom = scrollView.contentSize.height - contentYoffset
-       if distanceFromBottom < height && currPage != 0{
-           print(" you reached end of the table")
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset + 90
+        print(scrollView.contentOffset.y)
+
+        if distanceFromBottom < height && currPage != 0 && canLoad{
+            print("fetching more pages")
+           canLoad = false
+           currChapter+=1
            self.updateNextSet()
-       }
+           currPage = 0
+        }
+        else if distanceFromBottom - 250 > scrollView.contentSize.height && currChapter != 1{
+            print("fetching more pages")
+           canLoad = false
+           currChapter-=1
+           self.updatePreviousSet(float: scrollView.contentSize.height)
+           currPage = 0
+        }
     }
-    
+        
     func updateNextSet(){
-        waiting = true
-        currChapter+=1
+        print("current chapter " + String(currChapter))
         getAllChapters(mangaID: "1044287a-73df-48d0-b0b2-5327f32dd651")
         DispatchQueue.main.async(execute: collectionView.reloadData)
         self.collectionView.setContentOffset(CGPoint(x:0,y:0), animated: true)
         currPage = 0
+        firstCheck = 0
+        pageList.removeAll()
+    }
+    
+    func updatePreviousSet(float: CGFloat){
+        print("current chapter " + String(currChapter))
+        getAllChapters(mangaID: "1044287a-73df-48d0-b0b2-5327f32dd651")
+        DispatchQueue.main.async(execute: collectionView.reloadData)
+        currPage = 0
+        firstCheck = 0
+        pageList.removeAll()
     }
     
     //For MangaDex
@@ -131,7 +155,7 @@ class PagesCollectionViewController: UICollectionViewController {
             }
             DispatchQueue.main.sync {
                 self.collectionView.reloadData()
-                self.waiting = false
+                self.canLoad = true
             }
         }.resume()
     }
