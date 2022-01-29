@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
@@ -15,13 +16,17 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
     var mc = MangaController()
     var list:[String]=[]
     var mangaID:String?
+    var appDelegate:AppDelegate?
+    var ref:DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
         mangaCollectionView.reloadData() //refresh data
         mangaCollectionView.dataSource = self
         mangaCollectionView.delegate = self
         searchBar.delegate = self
+        ref = Database.database().reference()
         list = ["0d545e62-d4cd-4e65-a65c-a5c46b794918","72d1ae71-4391-4bb2-9f39-784af3cc3c71","1044287a-73df-48d0-b0b2-5327f32dd651","0d89de3b-454b-422e-9eed-c17402cf1604","7a9d76c3-42b9-4bcf-81d7-ad307d2ea971"]
     }
     
@@ -47,5 +52,13 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
         collectionView.deselectItem(at: indexPath, animated: true)
         mangaID = list[indexPath.row]
         mc.addToReadHistory(mangaID: mangaID!)
+        let user = appDelegate!.user
+        user.addfavourite(favouriteManga: Favourite(MangaID: "0d545e62-d4cd-4e65-a65c-a5c46b794918", FileName: "e4159693-18f3-472d-ba92-a1c96d32d36e.jpg"))
+//        let favouriteList = [["chapter":2,"fileName":"e4159693-18f3-472d-ba92-a1c96d32d36e.jpg","mangaID":"0d545e62-d4cd-4e65-a65c-a5c46b794918"]]
+        var dictArray: [Dictionary<String, Any>] = []
+        for favourite in user.favourites{
+            dictArray.append(["chapter":1,"fileName":favourite.fileName!, "mangaID":favourite.mangaID!])
+        }
+        ref.child("Users").child(user.userID).child("Favourites").setValue(dictArray)
     }
 }

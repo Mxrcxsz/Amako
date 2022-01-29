@@ -10,10 +10,15 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class FirebaseAuthManager {
-    func createUser(email: String, password: String, completionBlock: @escaping (_ success: Bool) -> Void) {
+    func createUser(username: String,email: String, password: String, completionBlock: @escaping (_ success: Bool) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) {(authResult, error) in
             if let user = authResult?.user {
-                print(user)
+                let ref: DatabaseReference! =  Database.database().reference()
+                ref.child("Users").child(user.uid).child("Username").setValue(username)
+                
+                let user = User(UserID: user.uid, Username: username)
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.user = user
                 completionBlock(true)
             } else {
                 completionBlock(false)
@@ -28,32 +33,28 @@ class FirebaseAuthManager {
             } else {
                 let uid = result!.user.uid
                 let ref: DatabaseReference! =  Database.database().reference()
-//                ref.child("Users").child(uid).observeSingleEvent(of: .value, with: { snapshot in
-//                    guard let value = snapshot.value as? [String: Any] else{
-//                        return
-//                    }
-//                    print("Value: \(value)")
-//                    favMangaIDList.append(value)
-//                })
+                
                 ref.child("Users").child(uid).getData(completion:  { error, snapshot in
                   guard error == nil else {
                     print(error!.localizedDescription)
                     return;
                   }
-                    
-                    let snap = snapshot.value as! [String:AnyObject]
-//                    let favouriteList = snap["Favourites"] as! [Int:AnyObject]
-                    let username = snap["Username"] as! String
-                    
+                    let snap = snapshot.value as? [String:AnyObject]
+                    let username = snap!["Username"] as! String
                     let user = User(UserID: uid, Username: username)
-                    for i in snap["Favourites"]! as! [NSDictionary]
-                    {
-                        print("Adding favourite")
-                        user.addfavourite(Manga: Manga(MangaID: i["mangaID"] as! String, FileName: i["fileName"] as? String))
+                    if snap!["Favourites"] != nil{
+                        for i in snap!["Favourites"]! as! [NSDictionary]
+                        {
+                            print("Adding favourite")
+                            user.addfavourite(favouriteManga: Favourite(MangaID: i["mangaID"] as! String, FileName: i["fileName"] as? String))
+                        }
                     }
+                    else{
+                        print("No saved manga")
+                    }
+                    
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.user = user
-                    print(appDelegate.user.favourites[1].mangaID!)
                 });
                 completionBlock(true)
             }

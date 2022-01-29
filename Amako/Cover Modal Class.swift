@@ -8,17 +8,17 @@
 import Foundation
 
 // MARK: - Welcome
-struct RootObject: Codable {
+struct CoverRootObject: Codable {
 //    let result, response: String
     let data: [CoverArt]
 //    let limit, offset, total: Int
 }
 
-// MARK: RootObject convenience initializers and mutators
+// MARK: CoverRootObject convenience initializers and mutators
 
-extension RootObject {
+extension CoverRootObject {
     init(data: Data) throws {
-        self = try newJSONDecoder().decode(RootObject.self, from: data)
+        self = try newJSONDecoder().decode(CoverRootObject.self, from: data)
     }
 
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -34,8 +34,8 @@ extension RootObject {
 
     func with(
         data: [CoverArt]? = nil
-    ) -> RootObject {
-        return RootObject(
+    ) -> CoverRootObject {
+        return CoverRootObject(
             data: data ?? self.data
         )
     }

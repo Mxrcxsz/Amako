@@ -10,6 +10,7 @@ import UIKit
 class AccountViewController: UIViewController {
     var appDelegate = (UIApplication.shared.delegate) as! AppDelegate
     
+    @IBOutlet weak var usernameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
     override func viewDidLoad() {
@@ -19,15 +20,15 @@ class AccountViewController: UIViewController {
     }
 
     @IBAction func signUpBtn(_ sender: Any) {
-        signUp(email: emailTxt.text!, password: passwordTxt.text!)
+        signUp(username: usernameTxt.text!, email: emailTxt.text!, password: passwordTxt.text!)
     }
     @IBAction func loginBtn(_ sender: Any) {
         login(email: emailTxt.text!, password: passwordTxt.text!)
     }
     
-    @objc func signUp(email:String, password:String) {
+    @objc func signUp(username:String,email:String, password:String) {
         let signUpManager = FirebaseAuthManager()
-        signUpManager.createUser(email: email, password: password) {[weak self] (success) in
+        signUpManager.createUser(username:username, email: email, password: password) {[weak self] (success) in
             guard self != nil else { return }
             var message: String = ""
             if (success) {
