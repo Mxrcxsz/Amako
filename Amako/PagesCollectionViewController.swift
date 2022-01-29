@@ -53,11 +53,14 @@ class PagesCollectionViewController: UICollectionViewController {
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if currPage == collectionView.numberOfItems(inSection: indexPath.section)-1 && !waiting {
-            print("getting more pages")
-            self.updateNextSet()
-        }
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+       let height = scrollView.frame.size.height
+       let contentYoffset = scrollView.contentOffset.y
+       let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+       if distanceFromBottom < height && currPage != 0{
+           print(" you reached end of the table")
+           self.updateNextSet()
+       }
     }
     
     func updateNextSet(){
@@ -87,7 +90,7 @@ class PagesCollectionViewController: UICollectionViewController {
                     for chapterID in jsonData!.value(forKey: "id") as! [String]
                     {
                         self.chapterIDList[index] = chapterID
-                        print(self.chapterIDList[index]!)
+                        //print(self.chapterIDList[index]!)
                         index += 1
                     }
                     print(self.chapterIDList.count)
