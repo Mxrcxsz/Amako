@@ -20,26 +20,10 @@ class AccountViewController: UIViewController {
     }
 
     @IBAction func signUpBtn(_ sender: Any) {
-        signUp(username: usernameTxt.text!, email: emailTxt.text!, password: passwordTxt.text!)
-    }
-    @IBAction func loginBtn(_ sender: Any) {
-        login(email: emailTxt.text!, password: passwordTxt.text!)
     }
     
-    @objc func signUp(username:String,email:String, password:String) {
-        let signUpManager = FirebaseAuthManager()
-        signUpManager.createUser(username:username, email: email, password: password) {[weak self] (success) in
-            guard self != nil else { return }
-            var message: String = ""
-            if (success) {
-                message = "User was sucessfully created."
-            } else {
-                message = "There was an error."
-            }
-            let signUpResultAlert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-            signUpResultAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self!.present(signUpResultAlert, animated: true)
-        }
+    @IBAction func loginBtn(_ sender: Any) {
+        login(email: emailTxt.text!, password: passwordTxt.text!)
     }
     
     @objc func login(email:String, password:String) {
