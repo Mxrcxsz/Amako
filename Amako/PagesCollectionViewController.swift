@@ -59,16 +59,17 @@ class PagesCollectionViewController: UICollectionViewController, UIGestureRecogn
         let height = scrollView.frame.size.height
         let contentYoffset = scrollView.contentOffset.y
         let distanceFromBottom = scrollView.contentSize.height - contentYoffset + 90
-        print(scrollView.contentOffset.y)
+//        print(height)
+//        print(distanceFromBottom + 60)
 
-        if distanceFromBottom < height && currPage != 0 && canLoad{
+        if distanceFromBottom + 60 < height && currPage != 0 && canLoad{
             print("fetching more pages")
            canLoad = false
            currChapter+=1
            self.updateNextSet()
            currPage = 0
         }
-        else if distanceFromBottom - 250 > scrollView.contentSize.height && currChapter != 1{
+        else if distanceFromBottom > scrollView.contentSize.height + 210 && currChapter != 1{
             print("fetching more pages")
            canLoad = false
            currChapter-=1

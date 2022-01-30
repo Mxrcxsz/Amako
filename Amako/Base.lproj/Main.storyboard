@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mCU-i4-xb4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="X3c-aT-Fz8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -186,7 +186,7 @@
             <objects>
                 <collectionViewController id="2I7-HK-ASG" customClass="PagesCollectionViewController" customModule="Amako" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="fDB-J2-J4u">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O9U-TP-DRC">
@@ -212,7 +212,6 @@
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="B0S-at-nzb" secondAttribute="bottom" id="8I2-AR-joK"/>
                                         <constraint firstItem="B0S-at-nzb" firstAttribute="top" secondItem="W1p-1p-SSa" secondAttribute="top" id="Phz-Hw-6gP"/>
                                         <constraint firstItem="B0S-at-nzb" firstAttribute="leading" secondItem="W1p-1p-SSa" secondAttribute="leading" id="Xio-zp-5qK"/>
                                         <constraint firstAttribute="trailing" secondItem="B0S-at-nzb" secondAttribute="trailing" id="YpB-Ho-52P"/>
@@ -231,6 +230,7 @@
                             <outlet property="delegate" destination="2I7-HK-ASG" id="Zsj-cC-IXv"/>
                         </connections>
                     </collectionView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="xSY-dk-4wu"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dB0-p7-MSk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
