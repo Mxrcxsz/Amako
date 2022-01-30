@@ -33,6 +33,10 @@ class AccountViewController: UIViewController {
                 var message: String = ""
                 if (success) {
                     message = "User was sucessfully logged in."
+                    let storyboard = UIStoryboard(name: "Content", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "Content") as UIViewController
+                    vc.modalPresentationStyle = .fullScreen //try without fullscreen
+                    self.present(vc, animated: true, completion: nil)
                 } else {
                     message = "There was an error."
                 }
