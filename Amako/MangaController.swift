@@ -13,10 +13,10 @@ class MangaController{
     var appDelegate = (UIApplication.shared.delegate) as! AppDelegate
     var ref: DatabaseReference! =  Database.database().reference()
     
-    func retrieveFavouriteMangaList() -> [Favourite]
+    func retrieveFavouriteMangaList() -> [Manga]
     {
         let userID = "px8yMWNkWIbHtCrBdRILIOH8E5n2"
-        var favMangaList:[Favourite] = []
+        var favMangaList:[Manga] = []
         var favMangaIDList:[Any] = []
         ref.child("Users/\(userID)/favourites").observe(.value, with: { snapshot in
             guard let value = snapshot.value as? [String: Any] else{

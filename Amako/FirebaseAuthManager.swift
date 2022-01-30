@@ -46,7 +46,7 @@ class FirebaseAuthManager {
                         for i in snap!["Favourites"]! as! [NSDictionary]
                         {
                             print("Adding favourite")
-                            user.addfavourite(favouriteManga: Favourite(MangaID: i["mangaID"] as! String, FileName: i["fileName"] as? String))
+                            user.addfavourite(favouriteManga: Manga(MangaID: i["mangaID"] as! String, CoverURL: i["fileName"] as! String))
                         }
                     }
                     else{

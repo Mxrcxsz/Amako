@@ -10,4 +10,6 @@ import UIKit
 
 class searchMangaViewCell: UICollectionViewCell{
     @IBOutlet weak var mangaImg: UIImageView!
+    @IBOutlet weak var mangaTitle: UILabel!
+    @IBOutlet weak var mangaStatus: UILabel!
 }

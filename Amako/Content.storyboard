@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hls-cZ-S37">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dE1-J0-Sfn">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -55,35 +55,40 @@
                                                         <constraint firstAttribute="height" constant="132" id="bEk-H0-rYi"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MANGA NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRu-Dg-7bW">
-                                                    <rect key="frame" x="151" y="47" width="112.5" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manga Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRu-Dg-7bW">
+                                                    <rect key="frame" x="151" y="27" width="239" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="33J-AY-P0A"/>
+                                                        <constraint firstAttribute="width" constant="239" id="CRV-39-EnY"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MANGA AUTHOR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRt-lS-blj">
-                                                    <rect key="frame" x="151" y="75" width="134" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manga Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRt-lS-blj">
+                                                    <rect key="frame" x="151" y="105" width="239" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="BRu-Dg-7bW" firstAttribute="top" secondItem="RjR-dK-zRP" secondAttribute="top" constant="47" id="2e2-KP-Vsl"/>
                                                 <constraint firstItem="cus-D5-Euu" firstAttribute="leading" secondItem="RjR-dK-zRP" secondAttribute="leading" constant="20" symbolic="YES" id="4z1-eh-Ybk"/>
-                                                <constraint firstItem="BRu-Dg-7bW" firstAttribute="leading" secondItem="cus-D5-Euu" secondAttribute="trailing" constant="24" id="Ihh-Yl-9r9"/>
-                                                <constraint firstAttribute="bottom" secondItem="qRt-lS-blj" secondAttribute="bottom" constant="54" id="Ikk-rP-quQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="qRt-lS-blj" secondAttribute="bottom" constant="24" id="5D0-eI-QGp"/>
                                                 <constraint firstAttribute="bottom" secondItem="cus-D5-Euu" secondAttribute="bottom" constant="8" id="La8-ms-ac6"/>
-                                                <constraint firstAttribute="trailing" secondItem="qRt-lS-blj" secondAttribute="trailing" constant="129" id="TRk-gi-Jc3"/>
-                                                <constraint firstAttribute="trailing" secondItem="BRu-Dg-7bW" secondAttribute="trailing" constant="150.5" id="UqF-8E-pHX"/>
+                                                <constraint firstAttribute="trailing" secondItem="BRu-Dg-7bW" secondAttribute="trailing" constant="24" id="MGJ-ib-fXI"/>
+                                                <constraint firstItem="BRu-Dg-7bW" firstAttribute="top" secondItem="RjR-dK-zRP" secondAttribute="top" constant="27" id="Oxl-3A-kTj"/>
+                                                <constraint firstAttribute="trailing" secondItem="qRt-lS-blj" secondAttribute="trailing" constant="24" id="TRk-gi-Jc3"/>
                                                 <constraint firstItem="qRt-lS-blj" firstAttribute="leading" secondItem="cus-D5-Euu" secondAttribute="trailing" constant="24" id="YxW-g9-cQR"/>
                                                 <constraint firstItem="cus-D5-Euu" firstAttribute="top" secondItem="RjR-dK-zRP" secondAttribute="top" constant="10" id="f72-Gn-Cxg"/>
-                                                <constraint firstItem="qRt-lS-blj" firstAttribute="top" secondItem="BRu-Dg-7bW" secondAttribute="bottom" constant="7.5" id="tt4-oZ-7a6"/>
+                                                <constraint firstItem="BRu-Dg-7bW" firstAttribute="leading" secondItem="cus-D5-Euu" secondAttribute="trailing" constant="24" id="j2d-58-5r4"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="150"/>
                                         <connections>
                                             <outlet property="mangaImg" destination="cus-D5-Euu" id="aKu-QV-Fun"/>
+                                            <outlet property="mangaStatus" destination="qRt-lS-blj" id="Kkb-i8-ot6"/>
+                                            <outlet property="mangaTitle" destination="BRu-Dg-7bW" id="Mn8-WD-UII"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -101,6 +106,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s4x-i3-9rK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2902.898550724638" y="624.77678571428567"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="cL7-WH-E1H">
+            <objects>
+                <viewController storyboardIdentifier="details" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dE1-J0-Sfn" customClass="DetailsViewController" customModule="Amako" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D86-Fm-C7v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgV-yi-AFr">
+                                <rect key="frame" x="72" y="243" width="270" height="239"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9Xz-Bw-A4m"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionTxt" destination="NgV-yi-AFr" id="KZZ-02-Yic"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ERQ-fR-dhb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4279.7101449275369" y="378.34821428571428"/>
         </scene>
         <!--FAVOURITE-->
         <scene sceneID="j7o-Gl-JgO">
@@ -320,7 +352,7 @@
         <!--Navigation Controller-->
         <scene sceneID="CQN-wC-NsJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fJa-sQ-2ih" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="readManga" automaticallyAdjustsScrollViewInsets="NO" id="fJa-sQ-2ih" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Eam-uX-WPa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

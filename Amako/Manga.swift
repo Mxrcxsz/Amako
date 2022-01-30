@@ -7,22 +7,32 @@
 
 import Foundation
 
-class Favourite{
-    var mangaID:String?
-    var fileName:String?
+class Manga{
+    var mangaID:String
+    var title:String?
+    var description:String?
+    var status:String?
     var coverUrl:URL?
+//    var chapterList:[Chapter] = []
+    
+    init(MangaID:String, Title:String, Description:String, Status:String){
+        self.mangaID = MangaID
+        self.title = Title
+        self.description = Description
+        self.status = Status
+    }
     
     
-//  For Firebase
-    init(MangaID:String, FileName:String?)
+//  Fetch from Firebase
+    init(MangaID:String, CoverURL:String)
     {
         self.mangaID = MangaID
-        self.fileName = FileName
+        self.coverUrl = URL(string: CoverURL)
     }
     
     func getCoverArtURL(){
     //      Building api url
-        let urlPath = "https://api.mangadex.org/cover?manga[]=" + self.mangaID!
+        let urlPath = "https://api.mangadex.org/cover?manga[]=" + self.mangaID
         let url = URL(string: urlPath)!
         let session = URLSession.shared
 
@@ -32,13 +42,10 @@ class Favourite{
                 return
             }
             do {
-                let outputString = String(data: data, encoding: String.Encoding.utf8) as String?
-//                print(outputString!)
-                if let jsonResult = try CoverRootObject.init(outputString!, using: .utf8) as CoverRootObject?{
+                if let jsonResult = try CoverRootObject(data: data) as CoverRootObject?{
                     let coverArtList = jsonResult.data
                     if coverArtList.count > 1{
-                        self.fileName = coverArtList[0].attributes.fileName
-                        let coverArtUrl = "https://uploads.mangadex.org/covers/" + self.mangaID! + "/" + self.fileName!
+                        let coverArtUrl = "https://uploads.mangadex.org/covers/" + self.mangaID + "/" + coverArtList[0].attributes.fileName
                         self.coverUrl = URL(string: coverArtUrl)
                     }
                     else{
@@ -46,7 +53,7 @@ class Favourite{
                     }
                 }
             } catch let parseError {
-                print("JSON Error \(parseError.localizedDescription)")
+                print("Cover Art JSON Error \(parseError.localizedDescription)")
             }
             DispatchQueue.main.sync {
 //                print(coverUrl)

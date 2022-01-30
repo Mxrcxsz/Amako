@@ -11,7 +11,7 @@ import FirebaseDatabase
 class User{
     var userID:String
     var username:String
-    var favourites:[Favourite] = []
+    var favourites:[Manga] = []
     private var _ref: DatabaseReference!
     
     var ref: DatabaseReference! {
@@ -27,7 +27,7 @@ class User{
         self.username = Username
     }
     
-    func addfavourite(favouriteManga:Favourite){
+    func addfavourite(favouriteManga:Manga){
         self.favourites.append(favouriteManga)
         favouriteManga.getCoverArtURL()
     }

@@ -27,10 +27,6 @@ class LogInViewController: UIViewController {
     
     @IBAction func loginBtn(_ sender: Any) {
         login(email: emailTxt.text!, password: passwordTxt.text!)
-        let storyboard = UIStoryboard(name: "Content", bundle: nil)
-        let accountPage = storyboard.instantiateViewController(withIdentifier: "Content") as UIViewController
-        accountPage.modalPresentationStyle = .fullScreen
-        self.present(accountPage, animated: true, completion: nil)
     }
     
     @objc func login(email:String, password:String) {

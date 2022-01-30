@@ -1,24 +1,23 @@
 //
-//  Modal Class.swift
+//  MangaModel Modal Class.swift
 //  Amako
 //
-//  Created by Khim Chua on 28/1/22.
+//  Created by Khim Chua on 31/1/22.
 //
 
 import Foundation
 
-// MARK: - Welcome
-struct CoverRootObject: Codable {
-//    let result, response: String
-    let data: [CoverArt]
+// MARK: - MangaRootObject
+struct MangaRootObject: Codable {
+    let data: [MangaModel]
     let limit, offset, total: Int
 }
 
-// MARK: CoverRootObject convenience initializers and mutators
+// MARK: MangaRootObject convenience initializers and mutators
 
-extension CoverRootObject {
+extension MangaRootObject {
     init(data: Data) throws {
-        self = try newJSONDecoder().decode(CoverRootObject.self, from: data)
+        self = try newJSONDecoder().decode(MangaRootObject.self, from: data)
     }
 
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -33,12 +32,12 @@ extension CoverRootObject {
     }
 
     func with(
-        data: [CoverArt]? = nil,
+        data: [MangaModel]? = nil,
         limit: Int? = nil,
         offset: Int? = nil,
         total: Int? = nil
-    ) -> CoverRootObject {
-        return CoverRootObject(
+    ) -> MangaRootObject {
+        return MangaRootObject(
             data: data ?? self.data,
             limit: limit ?? self.limit,
             offset: offset ?? self.offset,
@@ -55,18 +54,17 @@ extension CoverRootObject {
     }
 }
 
-// MARK: - Datum
-struct CoverArt: Codable {
+// MARK: - MangaModel
+struct MangaModel: Codable {
     let id: String
-    let attributes: Attributes
-    let relationships: [Relationship]
+    let attributes: MangaAttributes
 }
 
-// MARK: CoverArt convenience initializers and mutators
+// MARK: MangaModel convenience initializers and mutators
 
-extension CoverArt {
+extension MangaModel {
     init(data: Data) throws {
-        self = try newJSONDecoder().decode(CoverArt.self, from: data)
+        self = try newJSONDecoder().decode(MangaModel.self, from: data)
     }
 
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -82,13 +80,11 @@ extension CoverArt {
 
     func with(
         id: String? = nil,
-        attributes: Attributes? = nil,
-        relationships: [Relationship]? = nil
-    ) -> CoverArt {
-        return CoverArt(
+        attributes: MangaAttributes? = nil
+    ) -> MangaModel {
+        return MangaModel(
             id: id ?? self.id,
-            attributes: attributes ?? self.attributes,
-            relationships: relationships ?? self.relationships
+            attributes: attributes ?? self.attributes
         )
     }
 
@@ -101,20 +97,24 @@ extension CoverArt {
     }
 }
 
-// MARK: - Attributes
-struct Attributes: Codable {
-    let fileName: String
+// MARK: - MangaAttributes
+struct MangaAttributes: Codable {
+    let title: Title
+    let description: Description?
+    let lastVolume, lastChapter: String?
+    let status: Status
 
     enum CodingKeys: String, CodingKey {
-        case fileName
+        case title, description
+        case lastVolume, lastChapter, status
     }
 }
 
-// MARK: Attributes convenience initializers and mutators
+// MARK: MangaAttributes convenience initializers and mutators
 
-extension Attributes {
+extension MangaAttributes {
     init(data: Data) throws {
-        self = try newJSONDecoder().decode(Attributes.self, from: data)
+        self = try newJSONDecoder().decode(MangaAttributes.self, from: data)
     }
 
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -129,10 +129,18 @@ extension Attributes {
     }
 
     func with(
-        fileName: String? = nil
-    ) -> Attributes {
-        return Attributes(
-            fileName: fileName ?? self.fileName
+        title: Title? = nil,
+        description: Description? = nil,
+        lastVolume: String?? = nil,
+        lastChapter: String?? = nil,
+        status: Status? = nil
+    ) -> MangaAttributes {
+        return MangaAttributes(
+            title: title ?? self.title,
+            description: description ?? self.description,
+            lastVolume: lastVolume ?? self.lastVolume,
+            lastChapter: lastChapter ?? self.lastChapter,
+            status: status ?? self.status
         )
     }
 
@@ -145,16 +153,16 @@ extension Attributes {
     }
 }
 
-// MARK: - Relationship
-struct Relationship: Codable {
-    let id: String
+// MARK: - Description
+struct Description: Codable {
+    let en: String
 }
 
-// MARK: Relationship convenience initializers and mutators
+// MARK: Description convenience initializers and mutators
 
-extension Relationship {
+extension Description {
     init(data: Data) throws {
-        self = try newJSONDecoder().decode(Relationship.self, from: data)
+        self = try newJSONDecoder().decode(Description.self, from: data)
     }
 
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -169,10 +177,10 @@ extension Relationship {
     }
 
     func with(
-        id: String? = nil
-    ) -> Relationship {
-        return Relationship(
-            id: id ?? self.id
+        en: String? = nil
+    ) -> Description {
+        return Description(
+            en: en ?? self.en
         )
     }
 
@@ -185,20 +193,48 @@ extension Relationship {
     }
 }
 
-// MARK: - Helper functions for creating encoders and decoders
 
-func newJSONDecoder() -> JSONDecoder {
-    let decoder = JSONDecoder()
-    if #available(iOS 10.0, OSX 10.12, tvOS 10.0, watchOS 3.0, *) {
-        decoder.dateDecodingStrategy = .iso8601
-    }
-    return decoder
+enum Status: String, Codable {
+    case completed = "completed"
+    case ongoing = "ongoing"
 }
 
-func newJSONEncoder() -> JSONEncoder {
-    let encoder = JSONEncoder()
-    if #available(iOS 10.0, OSX 10.12, tvOS 10.0, watchOS 3.0, *) {
-        encoder.dateEncodingStrategy = .iso8601
+// MARK: - Title
+struct Title: Codable {
+    let en: String
+}
+
+// MARK: Title convenience initializers and mutators
+
+extension Title {
+    init(data: Data) throws {
+        self = try newJSONDecoder().decode(Title.self, from: data)
     }
-    return encoder
+
+    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+
+    init(fromURL url: URL) throws {
+        try self.init(data: try Data(contentsOf: url))
+    }
+
+    func with(
+        en: String? = nil
+    ) -> Title {
+        return Title(
+            en: en ?? self.en
+        )
+    }
+
+    func jsonData() throws -> Data {
+        return try newJSONEncoder().encode(self)
+    }
+
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
+    }
 }
