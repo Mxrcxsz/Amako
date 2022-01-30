@@ -17,6 +17,7 @@
 		0F1D00CE27A417D10056D338 /* HistoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D00CD27A417D10056D338 /* HistoryCollectionViewController.swift */; };
 		0F1D00D027A41CF30056D338 /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D00CF27A41CF30056D338 /* HistoryCollectionViewCell.swift */; };
 		0F1D00D227A587C10056D338 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D00D127A587C10056D338 /* SignUpViewController.swift */; };
+		0F4F500D27A6959300CA8637 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4F500C27A6959300CA8637 /* AccountViewController.swift */; };
 		19ABD34527A68F17008AFF31 /* Content.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19ABD34427A68F17008AFF31 /* Content.storyboard */; };
 		19CB52DD27A2EB8C00ABB675 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB52DC27A2EB8C00ABB675 /* PageCollectionViewCell.swift */; };
 		19CB52DF27A2EBAC00ABB675 /* PagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB52DE27A2EBAC00ABB675 /* PagesCollectionViewController.swift */; };
@@ -47,6 +48,7 @@
 		0F1D00CD27A417D10056D338 /* HistoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewController.swift; sourceTree = "<group>"; };
 		0F1D00CF27A41CF30056D338 /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F1D00D127A587C10056D338 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		0F4F500C27A6959300CA8637 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		19ABD34427A68F17008AFF31 /* Content.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Content.storyboard; sourceTree = "<group>"; };
 		19CB52DC27A2EB8C00ABB675 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		19CB52DE27A2EBAC00ABB675 /* PagesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesCollectionViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				E724C42327A1C0FB00539EB0 /* ViewController.swift */,
 				E724C42527A1C0FB00539EB0 /* Main.storyboard */,
 				19ABD34427A68F17008AFF31 /* Content.storyboard */,
+				0F4F500C27A6959300CA8637 /* AccountViewController.swift */,
 				0F1D00CF27A41CF30056D338 /* HistoryCollectionViewCell.swift */,
 				0F1D00CD27A417D10056D338 /* HistoryCollectionViewController.swift */,
 				0F1D00C627A3CC040056D338 /* FavouriteMangaViewCell.swift */,
@@ -280,6 +283,7 @@
 				19CB52DD27A2EB8C00ABB675 /* PageCollectionViewCell.swift in Sources */,
 				E773321327A536A30032E506 /* Global.swift in Sources */,
 				E724C42427A1C0FB00539EB0 /* ViewController.swift in Sources */,
+				0F4F500D27A6959300CA8637 /* AccountViewController.swift in Sources */,
 				0F1D009F27A2D5420056D338 /* SearchViewController.swift in Sources */,
 				E724C43727A1C1A000539EB0 /* LogInViewController.swift in Sources */,
 				E724C42027A1C0FB00539EB0 /* AppDelegate.swift in Sources */,

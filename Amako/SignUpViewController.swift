@@ -21,6 +21,17 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpBtn(_ sender: Any) {
         signUp(username: usernameFld.text!, email: emailFld.text!, password: passwordFld.text!)
+        let storyboard = UIStoryboard(name: "Content", bundle: nil)
+        let accountPage = storyboard.instantiateViewController(withIdentifier: "Content") as UIViewController
+        accountPage.modalPresentationStyle = .fullScreen
+        self.present(accountPage, animated: true, completion: nil)
+    }
+    
+    @IBAction func logInBtn(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let logInPage = storyboard.instantiateViewController(withIdentifier: "logInPage") as UIViewController
+        logInPage.modalPresentationStyle = .fullScreen
+        present(logInPage, animated: true, completion: nil)
     }
     
     @objc func signUp(username:String,email:String, password:String) {

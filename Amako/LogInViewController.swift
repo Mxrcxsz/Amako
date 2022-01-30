@@ -7,10 +7,9 @@
 
 import UIKit
 
-class AccountViewController: UIViewController {
+class LogInViewController: UIViewController {
     var appDelegate = (UIApplication.shared.delegate) as! AppDelegate
     
-    @IBOutlet weak var usernameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
     override func viewDidLoad() {
@@ -20,10 +19,18 @@ class AccountViewController: UIViewController {
     }
 
     @IBAction func signUpBtn(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let signUpPage = storyboard.instantiateViewController(withIdentifier: "signUpPage") as UIViewController
+        signUpPage.modalPresentationStyle = .fullScreen
+        present(signUpPage, animated: true, completion: nil)
     }
     
     @IBAction func loginBtn(_ sender: Any) {
         login(email: emailTxt.text!, password: passwordTxt.text!)
+        let storyboard = UIStoryboard(name: "Content", bundle: nil)
+        let accountPage = storyboard.instantiateViewController(withIdentifier: "Content") as UIViewController
+        accountPage.modalPresentationStyle = .fullScreen
+        self.present(accountPage, animated: true, completion: nil)
     }
     
     @objc func login(email:String, password:String) {
