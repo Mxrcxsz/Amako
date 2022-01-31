@@ -63,6 +63,7 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
 //        cell.mangaImg.image = UIImage(data: data!)
         return cell
     }
+    
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        collectionView.deselectItem(at: indexPath, animated: true)
 //        mangaID = list[indexPath.row]
@@ -92,14 +93,12 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
             }
             do {
                 let outputString = String(data: data, encoding: String.Encoding.utf8) as String?
-                print(outputString!)
                 if let jsonResult = try MangaRootObject.init(outputString!, using: .utf8) as MangaRootObject?{
                     if jsonResult.data.count > 1{
                         self.mangaResultList.removeAll()
                         for mangaModel in jsonResult.data{
-                            self.mangaResultList.append(Manga(MangaID: mangaModel.id, Title: mangaModel.attributes.title.en, Description: "", Status: mangaModel.attributes.status.rawValue))
+                            self.mangaResultList.append(Manga(MangaID: mangaModel.id, Title: mangaModel.attributes.title.en, Description: mangaModel.attributes.description.value() as! String, Status: mangaModel.attributes.status.rawValue))
                             self.mangaResultList[self.mangaResultList.count-1].getCoverArtURL()
-
                             print("waiting")
                             self.waiting = false
                         }
