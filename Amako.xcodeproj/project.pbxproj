@@ -39,6 +39,7 @@
 		E773321727A70C970032E506 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E773321627A70C970032E506 /* DetailsViewController.swift */; };
 		E7A2257927A8587D00243B26 /* Chapter Model Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A2257827A8587D00243B26 /* Chapter Model Class.swift */; };
 		E7A2257B27A8698B00243B26 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A2257A27A8698B00243B26 /* Chapter.swift */; };
+		E7A2257D27A89AFB00243B26 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A2257C27A89AFB00243B26 /* SplashScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		E773321627A70C970032E506 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		E7A2257827A8587D00243B26 /* Chapter Model Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chapter Model Class.swift"; sourceTree = "<group>"; };
 		E7A2257A27A8698B00243B26 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
+		E7A2257C27A89AFB00243B26 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		F2031E7A89A05CB82984A57D /* Pods_Amako.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amako.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -154,6 +156,7 @@
 				0F1D00C627A3CC040056D338 /* FavouriteMangaViewCell.swift */,
 				0F1D009E27A2D5420056D338 /* SearchViewController.swift */,
 				0F1D00CB27A402890056D338 /* SearchMangaViewCell.swift */,
+				E7A2257C27A89AFB00243B26 /* SplashScreenViewController.swift */,
 				19CB52DC27A2EB8C00ABB675 /* PageCollectionViewCell.swift */,
 				19CB52DE27A2EBAC00ABB675 /* PagesCollectionViewController.swift */,
 				E724C42B27A1C0FD00539EB0 /* Assets.xcassets */,
@@ -296,6 +299,7 @@
 				0F1D00C527A3A3AF0056D338 /* MangaController.swift in Sources */,
 				19CB52DD27A2EB8C00ABB675 /* PageCollectionViewCell.swift in Sources */,
 				E773321327A536A30032E506 /* Global.swift in Sources */,
+				E7A2257D27A89AFB00243B26 /* SplashScreenViewController.swift in Sources */,
 				E724C42427A1C0FB00539EB0 /* ViewController.swift in Sources */,
 				E773321727A70C970032E506 /* DetailsViewController.swift in Sources */,
 				0F4F500D27A6959300CA8637 /* AccountViewController.swift in Sources */,

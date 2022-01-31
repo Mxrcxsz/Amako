@@ -271,7 +271,7 @@
             </objects>
             <point key="canvasLocation" x="4315.9420289855079" y="407.14285714285711"/>
         </scene>
-        <!--FAVOURITE-->
+        <!--Favourite-->
         <scene sceneID="j7o-Gl-JgO">
             <objects>
                 <collectionViewController id="y8c-i2-yLe" customClass="FavouriteMangaViewController" customModule="Amako" customModuleProvider="target" sceneMemberID="viewController">
@@ -344,7 +344,7 @@
                             <outlet property="delegate" destination="y8c-i2-yLe" id="KXZ-Dj-Lev"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="FAVOURITE" id="0Gk-on-WrU"/>
+                    <navigationItem key="navigationItem" title="Favourite" id="0Gk-on-WrU"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sQV-Za-yLh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -428,13 +428,11 @@
             </objects>
             <point key="canvasLocation" x="894" y="1477"/>
         </scene>
-        <!--Manga-->
+        <!--Navigation Controller-->
         <scene sceneID="YIn-ff-Qac">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9kp-g1-TV7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Manga" id="5on-IC-Ir9">
-                        <color key="badgeColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="" image="search" id="5on-IC-Ir9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Onj-dB-XVc">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -449,11 +447,11 @@
             </objects>
             <point key="canvasLocation" x="2069.5652173913045" y="624.77678571428567"/>
         </scene>
-        <!--Favourite-->
+        <!--Navigation Controller-->
         <scene sceneID="h2C-UP-yGM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ryz-De-VF8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favourite" id="b43-fL-jgz"/>
+                    <tabBarItem key="tabBarItem" title="" image="favourite" id="b43-fL-jgz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RcQ-qD-bDR">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -468,11 +466,11 @@
             </objects>
             <point key="canvasLocation" x="2070" y="1385"/>
         </scene>
-        <!--History-->
+        <!--Navigation Controller-->
         <scene sceneID="BA5-l6-tko">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0mA-Kv-hyV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="History" id="WLd-bE-X75"/>
+                    <tabBarItem key="tabBarItem" title="" image="history" id="WLd-bE-X75"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xAb-pK-Kx2">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -590,7 +588,7 @@
             </objects>
             <point key="canvasLocation" x="2903" y="2058"/>
         </scene>
-        <!--ACCOUNT-->
+        <!--Account-->
         <scene sceneID="BeK-um-JX8">
             <objects>
                 <viewController id="xwN-Qm-vCw" customClass="AccountViewController" customModule="Amako" customModuleProvider="target" sceneMemberID="viewController">
@@ -609,7 +607,7 @@
                         <viewLayoutGuide key="safeArea" id="Ol6-b3-t9a"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ACCOUNT" id="F67-N4-BcJ">
+                    <navigationItem key="navigationItem" title="Account" id="F67-N4-BcJ">
                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="YHb-v3-MU6">
                             <connections>
                                 <action selector="logOutBtn:" destination="xwN-Qm-vCw" id="wzi-DP-qCI"/>
@@ -624,11 +622,11 @@
             </objects>
             <point key="canvasLocation" x="2902.898550724638" y="2757.5892857142858"/>
         </scene>
-        <!--Account-->
+        <!--Navigation Controller-->
         <scene sceneID="hsX-VP-nWy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sUN-fN-cvQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Account" id="QVY-I1-gzP"/>
+                    <tabBarItem key="tabBarItem" title="" image="account" id="QVY-I1-gzP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bLe-MW-Vda">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -645,8 +643,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="account" width="32" height="32"/>
+        <image name="favourite" width="25" height="25"/>
+        <image name="history" width="30" height="30"/>
         <image name="like" width="30" height="30"/>
         <image name="no-img" width="1242" height="2688"/>
+        <image name="search" width="25" height="25"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
