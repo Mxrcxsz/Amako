@@ -78,7 +78,9 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
 //  MARK: Api calling functions
 //  search Manga
     func searchManga(mangaName:String){
-        var urlPath = "https://api.mangadex.org/manga?title=" + mangaName
+        let manganame = mangaName.components(separatedBy: .whitespaces).joined()
+        print("Name: " + manganame)
+        var urlPath = "https://api.mangadex.org/manga?title=" + manganame
 //      adding more search params
         urlPath += "&availableTranslatedLanguage[]=en"
         let url = URL(string: urlPath)!

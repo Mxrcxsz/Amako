@@ -48,4 +48,14 @@ class LogInViewController: UIViewController {
                 self.present(loginResultAlert, animated: true)
             }
     }
+    
+    
+    @IBAction func skip(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Content", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "Content") as UIViewController
+        vc.modalPresentationStyle = .fullScreen //try without fullscreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
 }
