@@ -13,7 +13,6 @@ class Manga{
     var description:String?
     var status:String?
     var coverUrl:URL?
-//    var chapterList:[Chapter] = []
     
     init(MangaID:String, Title:String, Description:String, Status:String){
         self.mangaID = MangaID

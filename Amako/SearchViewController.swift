@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseDatabase
 
 class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
@@ -16,8 +15,8 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
     var mc = MangaController()
     var mangaResultList:[Manga]=[]
     var appDelegate:AppDelegate?
-    var ref:DatabaseReference!
     var waiting:Bool?
+    var index : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +26,6 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
         mangaCollectionView.delegate = self
         searchBar.delegate = self
         waiting = false
-        ref = Database.database().reference()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,7 +51,7 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mangaCell", for: indexPath) as! searchMangaViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mangaCell", for: indexPath) as! SearchMangaViewCell
         let manga = mangaResultList[indexPath.row]
         if(manga.coverUrl != nil){
             cell.mangaImg.downloaded(from: manga.coverUrl!)
@@ -64,18 +62,18 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        collectionView.deselectItem(at: indexPath, animated: true)
-//        mangaID = list[indexPath.row]
-//        mc.addToReadHistory(mangaID: mangaID!)
-//        let user = appDelegate!.user
-//        user.addfavourite(favouriteManga: Favourite(MangaID: "0d545e62-d4cd-4e65-a65c-a5c46b794918", FileName: "e4159693-18f3-472d-ba92-a1c96d32d36e.jpg"))
-//        var dictArray: [Dictionary<String, Any>] = []
-//        for favourite in user.favourites{
-//            dictArray.append(["chapter":1,"fileName":favourite.fileName!, "mangaID":favourite.mangaID!])
-//        }
-//        ref.child("Users").child(user.userID).child("Favourites").setValue(dictArray)
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        index = indexPath.row
+        performSegue(withIdentifier: "clickedManga", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "clickedManga"{
+            let vc = segue.destination as? DetailsViewController
+            vc?.manga = mangaResultList[index]
+        }
+    }
     
 //  MARK: Api calling functions
 //  search Manga
@@ -92,8 +90,7 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
                 return
             }
             do {
-                let outputString = String(data: data, encoding: String.Encoding.utf8) as String?
-                if let jsonResult = try MangaRootObject.init(outputString!, using: .utf8) as MangaRootObject?{
+                if let jsonResult = try MangaRootObject.init(data: data) as MangaRootObject?{
                     if jsonResult.data.count > 1{
                         self.mangaResultList.removeAll()
                         for mangaModel in jsonResult.data{
@@ -107,10 +104,7 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
                         print("No manga found")
                     }
                 }
-            }// catch let parseError {
-//                print("Search Manga JSON Error \(parseError.localizedDescription)")
-//                self.waiting = false
-//            }
+            }
             catch let DecodingError.dataCorrupted(context) {
                 print(context)
             } catch let DecodingError.keyNotFound(key, context) {

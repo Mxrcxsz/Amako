@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class searchMangaViewCell: UICollectionViewCell{
+class SearchMangaViewCell: UICollectionViewCell{
     @IBOutlet weak var mangaImg: UIImageView!
     @IBOutlet weak var mangaTitle: UILabel!
     @IBOutlet weak var mangaStatus: UILabel!
