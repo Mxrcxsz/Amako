@@ -28,8 +28,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPc-w4-lME">
-                                <rect key="frame" x="191" y="433" width="162" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPc-w4-lME">
+                                <rect key="frame" x="191" y="432" width="162" height="32"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up Now!"/>
                                 <connections>
@@ -50,6 +50,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cd4-SR-39y">
+                                <rect key="frame" x="136" y="526" width="143" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" SKIP LOL"/>
+                                <connections>
+                                    <action selector="skip:" destination="rSG-I6-tpp" eventType="touchUpInside" id="8nh-1x-nZk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sqi-yk-T8q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -60,10 +68,13 @@
                             <constraint firstItem="ooj-hR-bEm" firstAttribute="leading" secondItem="sqi-yk-T8q" secondAttribute="leading" constant="102" id="OVi-bt-5Ti"/>
                             <constraint firstItem="WPc-w4-lME" firstAttribute="leading" secondItem="sqi-yk-T8q" secondAttribute="leading" constant="191" id="T5u-Ih-Jt4"/>
                             <constraint firstItem="sqi-yk-T8q" firstAttribute="trailing" secondItem="lIa-tC-A4Z" secondAttribute="trailing" constant="133" id="TJp-Ws-6a8"/>
+                            <constraint firstItem="cd4-SR-39y" firstAttribute="top" secondItem="WPc-w4-lME" secondAttribute="bottom" constant="62" id="UCy-wG-11i"/>
                             <constraint firstItem="ooj-hR-bEm" firstAttribute="centerY" secondItem="WPc-w4-lME" secondAttribute="centerY" id="WER-95-Yik"/>
                             <constraint firstItem="sqi-yk-T8q" firstAttribute="trailing" secondItem="WPc-w4-lME" secondAttribute="trailing" constant="61" id="Z1v-QG-WAi"/>
+                            <constraint firstItem="sqi-yk-T8q" firstAttribute="trailing" secondItem="cd4-SR-39y" secondAttribute="trailing" constant="135" id="Za3-ku-QaF"/>
                             <constraint firstItem="lIa-tC-A4Z" firstAttribute="leading" secondItem="sqi-yk-T8q" secondAttribute="leading" constant="133" id="fNn-UI-2We"/>
                             <constraint firstItem="ooj-hR-bEm" firstAttribute="centerY" secondItem="a1r-UO-NTL" secondAttribute="centerY" id="tGA-ht-MgN"/>
+                            <constraint firstItem="cd4-SR-39y" firstAttribute="leading" secondItem="sqi-yk-T8q" secondAttribute="leading" constant="136" id="ymf-o1-NUU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Log In" id="0D9-aW-v2t"/>
@@ -74,74 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hoN-oM-mZq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1955" y="90"/>
-        </scene>
-        <!--Sign Up-->
-        <scene sceneID="3Uh-rm-r6i">
-            <objects>
-                <viewController storyboardIdentifier="signUpPage" id="EFf-FO-k1r" customClass="SignUpViewController" customModule="Amako" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lqu-fc-6mm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcy-hj-Fcu">
-                                <rect key="frame" x="57" y="224" width="300" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bPO-R3-3UT">
-                                <rect key="frame" x="57" y="286" width="300" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nUB-oi-I1H">
-                                <rect key="frame" x="57" y="168" width="300" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjg-rj-ssx">
-                                <rect key="frame" x="155" y="366" width="104" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
-                                <connections>
-                                    <action selector="signUpBtn:" destination="EFf-FO-k1r" eventType="touchUpInside" id="RZP-X0-ftg"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3Y-kT-hyN">
-                                <rect key="frame" x="63" y="438" width="136" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6u-i6-m8W">
-                                <rect key="frame" x="190" y="433" width="162" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Log In Now!"/>
-                                <connections>
-                                    <action selector="logInBtn:" destination="EFf-FO-k1r" eventType="touchUpInside" id="e1l-em-gBe"/>
-                                    <action selector="signUpBtn:" destination="rSG-I6-tpp" eventType="touchUpInside" id="F1s-me-McL"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="KL9-sr-m4h"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Sign Up" id="r7p-uY-6WD"/>
-                    <connections>
-                        <outlet property="emailFld" destination="kcy-hj-Fcu" id="Gke-ly-6Lc"/>
-                        <outlet property="passwordFld" destination="bPO-R3-3UT" id="HEq-Yh-5lj"/>
-                        <outlet property="usernameFld" destination="nUB-oi-I1H" id="mUh-6u-nXU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="csN-iS-bkL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2768" y="90"/>
+            <point key="canvasLocation" x="1953.6231884057972" y="89.732142857142847"/>
         </scene>
     </scenes>
     <resources>
