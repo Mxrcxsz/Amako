@@ -100,13 +100,12 @@ extension MangaModel {
 // MARK: - MangaAttributes
 struct MangaAttributes: Codable {
     let title: Title
-    let description: Description?
-    let lastVolume, lastChapter: String?
+//    let description: Description?
     let status: Status
 
     enum CodingKeys: String, CodingKey {
-        case title, description
-        case lastVolume, lastChapter, status
+        case title
+        case status
     }
 }
 
@@ -130,16 +129,12 @@ extension MangaAttributes {
 
     func with(
         title: Title? = nil,
-        description: Description? = nil,
-        lastVolume: String?? = nil,
-        lastChapter: String?? = nil,
+//        description: Description? = nil,
         status: Status? = nil
     ) -> MangaAttributes {
         return MangaAttributes(
             title: title ?? self.title,
-            description: description ?? self.description,
-            lastVolume: lastVolume ?? self.lastVolume,
-            lastChapter: lastChapter ?? self.lastChapter,
+//            description: description ?? self.description,
             status: status ?? self.status
         )
     }
@@ -197,6 +192,8 @@ extension Description {
 enum Status: String, Codable {
     case completed = "completed"
     case ongoing = "ongoing"
+    case hiatus = "hiatus"
+    case cancelled = "cancelled"
 }
 
 // MARK: - Title

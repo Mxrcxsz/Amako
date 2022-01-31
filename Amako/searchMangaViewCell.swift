@@ -12,4 +12,13 @@ class searchMangaViewCell: UICollectionViewCell{
     @IBOutlet weak var mangaImg: UIImageView!
     @IBOutlet weak var mangaTitle: UILabel!
     @IBOutlet weak var mangaStatus: UILabel!
+    
+    
+    override func prepareForReuse(){
+        super.prepareForReuse()
+        // Set the cell's imageView's image to nil
+        self.mangaImg.image = nil
+    }
 }
+
+

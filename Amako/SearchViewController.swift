@@ -56,8 +56,7 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mangaCell", for: indexPath) as! searchMangaViewCell
         let manga = mangaResultList[indexPath.row]
         if(manga.coverUrl != nil){
-            let data = try? Data(contentsOf: manga.coverUrl!)
-            cell.mangaImg.image = UIImage(data: data!)
+            cell.mangaImg.downloaded(from: manga.coverUrl!)
         }
         cell.mangaTitle.text = manga.title
         cell.mangaStatus.text = manga.status
@@ -96,10 +95,11 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
                 print(outputString!)
                 if let jsonResult = try MangaRootObject.init(outputString!, using: .utf8) as MangaRootObject?{
                     if jsonResult.data.count > 1{
+                        self.mangaResultList.removeAll()
                         for mangaModel in jsonResult.data{
-                            self.mangaResultList.append(Manga(MangaID: mangaModel.id, Title: mangaModel.attributes.title.en, Description: mangaModel.attributes.description?.en ?? "no description", Status: mangaModel.attributes.status.rawValue))
+                            self.mangaResultList.append(Manga(MangaID: mangaModel.id, Title: mangaModel.attributes.title.en, Description: "", Status: mangaModel.attributes.status.rawValue))
                             self.mangaResultList[self.mangaResultList.count-1].getCoverArtURL()
-                            
+
                             print("waiting")
                             self.waiting = false
                         }
@@ -108,11 +108,25 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
                         print("No manga found")
                     }
                 }
-            } catch let parseError {
-                print("Search Manga JSON Error \(parseError.localizedDescription)")
-                self.waiting = false
+            }// catch let parseError {
+//                print("Search Manga JSON Error \(parseError.localizedDescription)")
+//                self.waiting = false
+//            }
+            catch let DecodingError.dataCorrupted(context) {
+                print(context)
+            } catch let DecodingError.keyNotFound(key, context) {
+                print("Key '\(key)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.valueNotFound(value, context) {
+                print("Value '\(value)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch let DecodingError.typeMismatch(type, context)  {
+                print("Type '\(type)' mismatch:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+            } catch {
+                print("error: ", error)
             }
-            DispatchQueue.main.sync {
+            DispatchQueue.main.async {
                 self.mangaCollectionView.reloadData()
             }
         }.resume()
