@@ -65,7 +65,7 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(mangaResultList[indexPath.row].title)
+        print(mangaResultList[indexPath.row].title!)
     }
     
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

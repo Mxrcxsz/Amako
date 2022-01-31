@@ -7,13 +7,12 @@
 
 import UIKit
 
-
-class PagesCollectionViewController: UICollectionViewController, UIGestureRecognizerDelegate {
+class PagesCollectionViewController: UICollectionViewController {
     var pageList = Array<String>()
     var chapterIDList = Dictionary<Int,String>()
     var chapterHash = ""
     var nextchapterHash = ""
-    var currChapter = 1
+    var currChapter = 90
     var currPage = 0
     var firstCheck = 0
     var canLoad = true
@@ -22,7 +21,16 @@ class PagesCollectionViewController: UICollectionViewController, UIGestureRecogn
     override func viewDidLoad() {
         super.viewDidLoad()
         getAllChapters(mangaID: "1044287a-73df-48d0-b0b2-5327f32dd651")
-        print("current chapter " + String(currChapter))
+        
+        let layout = collectionView.collectionViewLayout
+        if let flowLayout = layout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = CGSize(
+                width: collectionView.widestCellWidth,
+                // Make the height a reasonable estimate to
+                // ensure the scroll bar remains smooth
+                height: 700
+            )
+        }
     }
 
     // MARK: UICollectionViewDataSource
@@ -44,12 +52,12 @@ class PagesCollectionViewController: UICollectionViewController, UIGestureRecogn
         cell.pictureView.contentMode = .scaleToFill
         cell.pictureView.downloaded(from: imgLinkBuilder(index: indexPath.row))
         
-        if firstCheck != pageList.count-1{
-            firstCheck = indexPath.row
-        }
-        else{
+//        if firstCheck != pageList.count-1{
+//            firstCheck = indexPath.row
+//        }
+//        else{
             currPage = indexPath.row
-        }
+//        }
         
         //print("Current page is " + String(currPage) + " Stupid Index is " + String(indexPath.row))
         return cell
@@ -62,7 +70,7 @@ class PagesCollectionViewController: UICollectionViewController, UIGestureRecogn
 //        print(height)
 //        print(distanceFromBottom + 60)
 
-        if distanceFromBottom + 60 < height && currPage != 0 && canLoad{
+        if distanceFromBottom + 60 < height && currPage != 0 && canLoad && currChapter <= chapterIDList.count{
             print("fetching more pages")
            canLoad = false
            currChapter+=1
@@ -77,6 +85,11 @@ class PagesCollectionViewController: UICollectionViewController, UIGestureRecogn
            currPage = 0
         }
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: collectionView.frame.size.width/3.5, height: collectionView.frame.size.height/4)
+//    }
+
         
     func updateNextSet(){
         print("current chapter " + String(currChapter))
@@ -118,7 +131,7 @@ class PagesCollectionViewController: UICollectionViewController, UIGestureRecogn
                         //print(self.chapterIDList[index]!)
                         index += 1
                     }
-                    print(self.chapterIDList.count)
+                    //print(self.chapterIDList.count)
                 }
             } catch let parseError {
                 print("JSON Error \(parseError.localizedDescription)")
