@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fJa-sQ-2ih">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hls-cZ-S37">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -180,6 +180,9 @@
                                                                 </label>
                                                             </subviews>
                                                         </tableViewCellContentView>
+                                                        <connections>
+                                                            <segue destination="Wgu-ID-r9b" kind="show" id="cnJ-Qk-GFc"/>
+                                                        </connections>
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
@@ -269,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ERQ-fR-dhb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4315.9420289855079" y="407.14285714285711"/>
+            <point key="canvasLocation" x="3957" y="625"/>
         </scene>
         <!--Favourite-->
         <scene sceneID="j7o-Gl-JgO">
@@ -336,6 +339,7 @@
                                 <size key="customSize" width="130" height="242"/>
                                 <connections>
                                     <outlet property="favMangaImage" destination="hb2-QF-Tu6" id="DNP-Bd-5vF"/>
+                                    <segue destination="Wgu-ID-r9b" kind="show" id="Jgk-GP-Tzz"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -401,10 +405,11 @@
                     </collectionView>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="dtT-dW-M6Y"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mkh-3n-f46" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5226.0869565217399" y="1088.1696428571429"/>
+            <point key="canvasLocation" x="3957" y="1385"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0ny-EV-WTZ">
@@ -421,7 +426,6 @@
                         <segue destination="ryz-De-VF8" kind="relationship" relationship="viewControllers" id="Yb1-zX-vpa"/>
                         <segue destination="0mA-Kv-hyV" kind="relationship" relationship="viewControllers" id="Qrw-yn-zNz"/>
                         <segue destination="sUN-fN-cvQ" kind="relationship" relationship="viewControllers" id="jJj-Qc-TpD"/>
-                        <segue destination="fJa-sQ-2ih" kind="relationship" relationship="viewControllers" id="F9C-Zl-MWd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kit-Ga-8Oh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -484,25 +488,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gc5-ud-TMf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2070" y="2058"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="CQN-wC-NsJ">
-            <objects>
-                <navigationController storyboardIdentifier="readManga" automaticallyAdjustsScrollViewInsets="NO" id="fJa-sQ-2ih" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Xnl-O2-lqR"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Eam-uX-WPa">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Wgu-ID-r9b" kind="relationship" relationship="rootViewController" id="gbD-fr-C3D"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X8B-0U-KnH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4315.9420289855079" y="1088.1696428571429"/>
         </scene>
         <!--HISTORY-->
         <scene sceneID="wvL-cT-zw7">
@@ -642,6 +627,9 @@
             <point key="canvasLocation" x="2070" y="2758"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="cnJ-Qk-GFc"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="account" width="32" height="32"/>
         <image name="favourite" width="25" height="25"/>

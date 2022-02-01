@@ -116,12 +116,17 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return chapterList.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chapterCell", for: indexPath)
         cell.textLabel?.text = chapterList[indexPath.row].title
         cell.detailTextLabel?.text = "Chapter " + chapterList[indexPath.row].chapterNo
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //print("Chapter number:", indexPath.row, "MangaID:", (manga?.mangaID)!)
+        appDelegate!.selectedChapNo = indexPath.row + 1
+        appDelegate!.selectedMangaId = (manga?.mangaID)!
     }
     
     func getLabelHeight(text: String, width: CGFloat, font: UIFont) -> CGFloat {

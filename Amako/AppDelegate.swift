@@ -11,6 +11,8 @@ import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var selectedMangaId:String?
+    var selectedChapNo:Int?
     var user:User = User(UserID: "", Username: "")
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()

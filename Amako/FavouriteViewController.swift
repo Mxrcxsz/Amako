@@ -42,7 +42,8 @@ class FavouriteMangaViewController: UICollectionViewController,UICollectionViewD
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        print("tapped")
+        appDelegate.selectedChapNo = indexPath.row + 1
+        appDelegate.selectedMangaId = appDelegate.user.favourites[indexPath.row].mangaID
     }
     
     // MARK: UICollectionViewDelegate

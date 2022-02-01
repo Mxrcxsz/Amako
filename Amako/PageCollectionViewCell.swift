@@ -10,6 +10,7 @@ import UIKit
 class PageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var pictureView: UIImageView!
     
+    
     override func systemLayoutSizeFitting(
         _ targetSize: CGSize,
         withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,

@@ -6,22 +6,35 @@
 //
 
 import UIKit
+import CoreData
 
 class PagesCollectionViewController: UICollectionViewController {
     var pageList = Array<String>()
     var chapterIDList = Dictionary<Int,String>()
     var chapterHash = ""
     var nextchapterHash = ""
-    var currChapter = 90
+    var currChapter = 1
     var currPage = 0
     var firstCheck = 0
+    var offset = 0
+    var realChap = 0
     var canLoad = true
-    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getAllChapters(mangaID: "1044287a-73df-48d0-b0b2-5327f32dd651")
-        
+        currChapter = appDelegate.selectedChapNo!
+        realChap = appDelegate.selectedChapNo!
+        if currChapter > 100{
+            offset = 99
+            currChapter -= 99
+        }
+        getAllChapters(mangaID: appDelegate.selectedMangaId!)
+                
+        print("offset", offset, "currchap", currChapter)
+        //print("Chapter number:", appDelegate.selectedChapNo!, "MangaID:", appDelegate.selectedMangaId!)
+
         let layout = collectionView.collectionViewLayout
         if let flowLayout = layout as? UICollectionViewFlowLayout {
             flowLayout.estimatedItemSize = CGSize(
@@ -74,6 +87,12 @@ class PagesCollectionViewController: UICollectionViewController {
             print("fetching more pages")
            canLoad = false
            currChapter+=1
+            
+            if currChapter > 100{
+                offset = 99
+                currChapter -= 99
+            }
+            
            self.updateNextSet()
            currPage = 0
         }
@@ -81,6 +100,12 @@ class PagesCollectionViewController: UICollectionViewController {
             print("fetching more pages")
            canLoad = false
            currChapter-=1
+            
+            if realChap <= 100{
+                offset = 0
+                currChapter = realChap
+            }
+            
            self.updatePreviousSet(float: scrollView.contentSize.height)
            currPage = 0
         }
@@ -93,7 +118,7 @@ class PagesCollectionViewController: UICollectionViewController {
         
     func updateNextSet(){
         print("current chapter " + String(currChapter))
-        getAllChapters(mangaID: "1044287a-73df-48d0-b0b2-5327f32dd651")
+        getAllChapters(mangaID: appDelegate.selectedMangaId!)
         DispatchQueue.main.async(execute: collectionView.reloadData)
         self.collectionView.setContentOffset(CGPoint(x:0,y:0), animated: true)
         currPage = 0
@@ -103,7 +128,7 @@ class PagesCollectionViewController: UICollectionViewController {
     
     func updatePreviousSet(float: CGFloat){
         print("current chapter " + String(currChapter))
-        getAllChapters(mangaID: "1044287a-73df-48d0-b0b2-5327f32dd651")
+        getAllChapters(mangaID: appDelegate.selectedMangaId!)
         DispatchQueue.main.async(execute: collectionView.reloadData)
         currPage = 0
         firstCheck = 0
@@ -112,7 +137,7 @@ class PagesCollectionViewController: UICollectionViewController {
     
     //For MangaDex
     func getAllChapters(mangaID:String){
-        let urlPath = "https://api.mangadex.org/chapter?manga=" + mangaID + "&order[chapter]=asc&translatedLanguage[]=en&offset=0&excludedGroups[]=4f1de6a2-f0c5-4ac5-bce5-02c7dbb67deb&limit=100"
+        let urlPath = "https://api.mangadex.org/chapter?manga=" + mangaID + "&order[chapter]=asc&translatedLanguage[]=en&offset=" + String(offset) + "&excludedGroups[]=4f1de6a2-f0c5-4ac5-bce5-02c7dbb67deb&limit=100"
         let url = URL(string: urlPath)!
         let session = URLSession.shared
 
@@ -212,8 +237,5 @@ extension UIImageView {
             }
         }.resume()
     }
-//    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
-//        guard let url = URL(string: link) else { return }
-//        downloaded(from: url, contentMode: mode)
-//    }
 }
+
