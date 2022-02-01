@@ -26,6 +26,10 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
         mangaCollectionView.delegate = self
         searchBar.delegate = self
         waiting = false
+        
+        if searchBar.text! == ""{
+            searchManga(mangaName: searchBar.text!)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
