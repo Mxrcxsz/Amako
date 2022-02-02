@@ -57,6 +57,7 @@ class Manga{
                         self.coverUrl = URL(string: coverArtUrl)
                     }
                     else{
+                        self.coverUrl = URL(string: "https://i.imgur.com/7P46OBD.jpeg")
                         print("No cover art for following manga")
                     }
                 }

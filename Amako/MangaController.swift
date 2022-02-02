@@ -30,17 +30,46 @@ class MangaController{
     }
     func addToReadHistory(mangaID:String, mangaTitle:String, mangaImageUrl:URL)
     {
-        let context = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "CDHistory", in: context)!
-        
-        let history = NSManagedObject(entity: entity, insertInto: context)
-        history.setValue(mangaID, forKey: "mangaID")
-        history.setValue(mangaTitle, forKey: "mangaTitle")
-        history.setValue(mangaImageUrl, forKey: "mangaImageUrl")
-        do{
-            try context.save()
-        } catch let error as NSError{
-            print("Could not save. \(error), \(error.userInfo)")
+        if (checkMangaExists(mangaID: mangaID) == false){
+            let context = appDelegate.persistentContainer.viewContext
+            let entity = NSEntityDescription.entity(forEntityName: "CDHistory", in: context)!
+            
+            let history = NSManagedObject(entity: entity, insertInto: context)
+            history.setValue(mangaID, forKey: "mangaID")
+            history.setValue(mangaTitle, forKey: "mangaTitle")
+            history.setValue(mangaImageUrl, forKey: "mangaImageUrl")
+            do{
+                try context.save()
+            } catch let error as NSError{
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+        }
+        else{
+            var managedHistoryList : [NSManagedObject] = []
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CDHistory")
+            fetchRequest.predicate = NSPredicate(format: "ANY mangaID = %@", mangaID)
+            do {
+                managedHistoryList = try context.fetch(fetchRequest)
+                for c in managedHistoryList {
+                    context.delete(c)
+                    
+                let entity = NSEntityDescription.entity(forEntityName: "CDHistory", in: context)!
+                
+                let history = NSManagedObject(entity: entity, insertInto: context)
+                history.setValue(mangaID, forKey: "mangaID")
+                history.setValue(mangaTitle, forKey: "mangaTitle")
+                history.setValue(mangaImageUrl, forKey: "mangaImageUrl")
+                do{
+                    try context.save()
+                } catch let error as NSError{
+                    print("Could not save. \(error), \(error.userInfo)")
+                }
+                }
+            } catch let error as NSError {
+                print("Could not fetch. \(error) \(error.userInfo)")
+            }
+
         }
     }
     func retrieveReadHistory()->[Manga]{
@@ -62,6 +91,22 @@ class MangaController{
         }
         return historyList
     }
+    func checkMangaExists(mangaID:String)-> Bool{
+        var managedHistoryList : [NSManagedObject] = []
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CDHistory")
+        fetchRequest.predicate = NSPredicate(format: "ANY mangaID = %@", mangaID)
+        do {
+            managedHistoryList = try context.fetch(fetchRequest)
+            if managedHistoryList.count == 1{
+                return true
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error) \(error.userInfo)")
+        }
+        return false
+    }
+    
     func deleteReadHistory()
     {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CDHistory")
