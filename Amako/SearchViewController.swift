@@ -97,13 +97,14 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
             }
             do {
                 if let jsonResult = try MangaRootObject.init(data: data) as MangaRootObject?{
-                    if jsonResult.data.count > 1{
+                    if jsonResult.data.count >= 1{
                         self.mangaResultList.removeAll()
                         for mangaModel in jsonResult.data{
                             self.mangaResultList.append(Manga(MangaID: mangaModel.id, Title: mangaModel.attributes.title.en, Description: mangaModel.attributes.description.value() as! String, Status: mangaModel.attributes.status.rawValue))
                             self.mangaResultList[self.mangaResultList.count-1].getCoverArtURL()
                             print("waiting")
                             self.waiting = false
+                            self.mangaCollectionView.setContentOffset(CGPoint(x:0,y:0), animated: true)
                         }
                     }
                     else{

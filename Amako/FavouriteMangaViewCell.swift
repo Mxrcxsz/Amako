@@ -9,5 +9,5 @@ import UIKit
 
 class FavouriteMangaViewCell: UICollectionViewCell{
     @IBOutlet weak var favMangaImage: UIImageView!
-
+    @IBOutlet weak var favMangaTitle: UILabel!
 }

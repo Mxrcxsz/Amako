@@ -77,7 +77,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             iconName = "like"
         }
         else{
-            user.addfavourite(favouriteManga: Manga(MangaID: manga!.mangaID, CoverURL: manga!.coverUrl!.absoluteString))
+            user.addfavourite(favouriteManga: Manga(MangaID: manga!.mangaID, CoverURL: manga!.coverUrl!.absoluteString, Title: manga!.title!))
             isFavourite = true
             iconName = "like-fill"
         }
@@ -86,7 +86,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         var dictArray: [Dictionary<String, Any>] = []
         for favourite in user.favourites{
-            dictArray.append(["chapter":1,"coverUrl":favourite.coverUrl!.absoluteString, "mangaID":favourite.mangaID])
+            dictArray.append(["chapter":1,"coverUrl":favourite.coverUrl!.absoluteString, "mangaID":favourite.mangaID, "title":favourite.title!])
         }
         ref.child("Users").child(user.userID).child("Favourites").setValue(dictArray)
     }

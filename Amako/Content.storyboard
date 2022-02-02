@@ -339,7 +339,7 @@
                                 <size key="customSize" width="130" height="242"/>
                                 <connections>
                                     <outlet property="favMangaImage" destination="hb2-QF-Tu6" id="DNP-Bd-5vF"/>
-                                    <segue destination="Wgu-ID-r9b" kind="show" id="Jgk-GP-Tzz"/>
+                                    <outlet property="favMangaTitle" destination="2Pj-YO-0Mf" id="41Q-2l-scz"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -349,6 +349,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Favourite" id="0Gk-on-WrU"/>
+                    <connections>
+                        <segue destination="dE1-J0-Sfn" kind="show" identifier="clickedFavManga" id="wwS-Ln-gzw"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sQV-Za-yLh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -628,7 +631,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cnJ-Qk-GFc"/>
+        <segue reference="wwS-Ln-gzw"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="account" width="32" height="32"/>

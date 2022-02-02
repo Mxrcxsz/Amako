@@ -23,10 +23,11 @@ class Manga{
     
     
 //  Fetch from Firebase
-    init(MangaID:String, CoverURL:String)
+    init(MangaID:String, CoverURL:String, Title:String)
     {
         self.mangaID = MangaID
         self.coverUrl = URL(string: CoverURL)
+        self.title = Title
     }
     
     func getCoverArtURL(){

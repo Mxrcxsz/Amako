@@ -26,7 +26,8 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func loginBtn(_ sender: Any) {
-        login(email: emailTxt.text!, password: passwordTxt.text!)
+        let mailTxt = emailTxt.text!.components(separatedBy: .whitespaces).joined()
+        login(email: mailTxt, password: passwordTxt.text!)
     }
     
     @objc func login(email:String, password:String) {
