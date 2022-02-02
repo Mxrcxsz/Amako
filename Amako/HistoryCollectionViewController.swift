@@ -17,11 +17,13 @@ class HistoryCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         historyList = mc.retrieveReadHistory()
+        historyList = historyList.reversed()
         self.collectionView.reloadData()
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         historyList = mc.retrieveReadHistory()
+        historyList = historyList.reversed()
         self.collectionView.reloadData()
     }
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
