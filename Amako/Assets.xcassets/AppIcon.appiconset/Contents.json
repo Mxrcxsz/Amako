@@ -1,109 +1,109 @@
 {
   "images" : [
     {
-      "filename" : "amako-logo-1.png",
+      "filename" : "amako-logo-20@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "amako-logo-4.png",
+      "filename" : "amako-logo-20@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
-      "filename" : "amako-logo-5.png",
+      "filename" : "amako-logo-29@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "amako-logo-7.png",
+      "filename" : "amako-logo-29@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
-      "filename" : "amako-logo-8.png",
+      "filename" : "amako-logo-40@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "amako-logo-10.png",
+      "filename" : "amako-logo-40@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "amako-logo-11.png",
+      "filename" : "amako-logo-60@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "amako-logo-12.png",
+      "filename" : "amako-logo-60@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
-      "filename" : "amako-logo-13.png",
+      "filename" : "amako-logo-20.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "20x20"
     },
     {
-      "filename" : "amako-logo-2.png",
+      "filename" : "amako-logo-20@2x-1.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "amako-logo-14.png",
+      "filename" : "amako-logo-29.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
-      "filename" : "amako-logo-6.png",
+      "filename" : "amako-logo-29@2x-1.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "amako-logo-3.png",
+      "filename" : "amako-logo-40.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
     },
     {
-      "filename" : "amako-logo-9.png",
+      "filename" : "amako-logo-40@2x-1.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "amako-logo-15.png",
+      "filename" : "amako-logo-76.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
-      "filename" : "amako-logo-16.png",
+      "filename" : "amako-logo-76@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
-      "filename" : "amako-logo-17.png",
+      "filename" : "amako-logo-83.5@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "amako-logo.png",
+      "filename" : "amako-logo-1024.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
