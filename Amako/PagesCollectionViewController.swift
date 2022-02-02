@@ -25,14 +25,21 @@ class PagesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currChapter = appDelegate.selectedChapNo!
+        //print("chapter", currChapter)
         realChap = appDelegate.selectedChapNo!
-        if currChapter > 100{
+        
+        if currChapter > 100 && currChapter < 200{
             offset = 99
             currChapter -= 99
         }
+        else if currChapter >= 200{
+            offset = 199
+            currChapter -= 199
+        }
+        
         getAllChapters(mangaID: appDelegate.selectedMangaId!)
                 
-        print("offset", offset, "currchap", currChapter)
+        //print("offset", offset, "currchap", currChapter)
         //print("Chapter number:", appDelegate.selectedChapNo!, "MangaID:", appDelegate.selectedMangaId!)
 
         let layout = collectionView.collectionViewLayout
@@ -84,29 +91,41 @@ class PagesCollectionViewController: UICollectionViewController {
 //        print(distanceFromBottom + 60)
 
         if distanceFromBottom + 60 < height && currPage != 0 && canLoad && currChapter <= chapterIDList.count{
-            print("fetching more pages")
            canLoad = false
            currChapter+=1
+            realChap += 1
             
-            if currChapter > 100{
+            if realChap > 100 && realChap < 200{
                 offset = 99
-                currChapter -= 99
+                currChapter = realChap - 99
+            }
+            else if realChap >= 200{
+                offset = 199
+                currChapter = realChap - 199
             }
             
            self.updateNextSet()
            currPage = 0
         }
-        else if distanceFromBottom > scrollView.contentSize.height + 210 && currChapter != 1{
-            print("fetching more pages")
+        else if distanceFromBottom > scrollView.contentSize.height + 210 && realChap != 1 && canLoad{
            canLoad = false
            currChapter-=1
+            realChap -= 1
             
             if realChap <= 100{
                 offset = 0
                 currChapter = realChap
             }
+            else if realChap > 100 && realChap < 200{
+                offset = 99
+                currChapter = realChap - 99
+            }
+            else if realChap >= 200{
+                offset = 199
+                currChapter = realChap - 199
+            }
             
-           self.updatePreviousSet(float: scrollView.contentSize.height)
+           self.updatePreviousSet()
            currPage = 0
         }
     }
@@ -117,7 +136,7 @@ class PagesCollectionViewController: UICollectionViewController {
 
         
     func updateNextSet(){
-        print("current chapter " + String(currChapter))
+        //print("current chapter " + String(currChapter))
         getAllChapters(mangaID: appDelegate.selectedMangaId!)
         DispatchQueue.main.async(execute: collectionView.reloadData)
         self.collectionView.setContentOffset(CGPoint(x:0,y:0), animated: true)
@@ -126,8 +145,8 @@ class PagesCollectionViewController: UICollectionViewController {
         pageList.removeAll()
     }
     
-    func updatePreviousSet(float: CGFloat){
-        print("current chapter " + String(currChapter))
+    func updatePreviousSet(){
+        //print("current chapter " + String(currChapter))
         getAllChapters(mangaID: appDelegate.selectedMangaId!)
         DispatchQueue.main.async(execute: collectionView.reloadData)
         currPage = 0
@@ -137,6 +156,7 @@ class PagesCollectionViewController: UICollectionViewController {
     
     //For MangaDex
     func getAllChapters(mangaID:String){
+        print("offset", offset, "currChap", currChapter, "realChap", realChap)
         let urlPath = "https://api.mangadex.org/chapter?manga=" + mangaID + "&order[chapter]=asc&translatedLanguage[]=en&offset=" + String(offset) + "&excludedGroups[]=4f1de6a2-f0c5-4ac5-bce5-02c7dbb67deb&limit=100"
         let url = URL(string: urlPath)!
         let session = URLSession.shared
