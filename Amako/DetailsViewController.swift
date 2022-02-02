@@ -157,7 +157,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.totalResult = jsonResult.total
                     if jsonResult.data.count > 1{
                         for chapter in jsonResult.data{
-                            self.chapterList.append(Chapter(ChapterID: chapter.id, Title: chapter.attributes.title, ChapterNo: chapter.attributes.chapter))
+                            self.chapterList.append(Chapter(ChapterID: chapter.id, Title: chapter.attributes.title ?? "", ChapterNo: chapter.attributes.chapter ?? ""))
                         }
                         self.waiting = false
                     }

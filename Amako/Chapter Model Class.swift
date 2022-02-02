@@ -100,13 +100,12 @@ extension ChapterModel {
 
 // MARK: - ChapterAttributes
 struct ChapterAttributes: Codable {
-    let volume, chapter, title: String
+    let chapter, title: String?
     let publishAt, readableAt, createdAt, updatedAt: Date
-    let pages, version: Int
 
     enum CodingKeys: String, CodingKey {
-        case volume, chapter, title
-        case publishAt, readableAt, createdAt, updatedAt, pages, version
+        case chapter, title
+        case publishAt, readableAt, createdAt, updatedAt
     }
 }
 
@@ -129,26 +128,20 @@ extension ChapterAttributes {
     }
 
     func with(
-        volume: String? = nil,
-        chapter: String? = nil,
-        title: String? = nil,
+        chapter: String?? = nil,
+        title: String?? = nil,
         publishAt: Date? = nil,
         readableAt: Date? = nil,
         createdAt: Date? = nil,
-        updatedAt: Date? = nil,
-        pages: Int? = nil,
-        version: Int? = nil
+        updatedAt: Date? = nil
     ) -> ChapterAttributes {
         return ChapterAttributes(
-            volume: volume ?? self.volume,
-            chapter: chapter ?? self.chapter,
-            title: title ?? self.title,
+            chapter: (chapter ?? self.chapter) ?? "",
+            title: (title ?? self.title) ?? "",
             publishAt: publishAt ?? self.publishAt,
             readableAt: readableAt ?? self.readableAt,
             createdAt: createdAt ?? self.createdAt,
-            updatedAt: updatedAt ?? self.updatedAt,
-            pages: pages ?? self.pages,
-            version: version ?? self.version
+            updatedAt: updatedAt ?? self.updatedAt
         )
     }
 
