@@ -102,7 +102,6 @@ class MangaSearchViewController: UIViewController, UICollectionViewDelegate, UIC
                         for mangaModel in jsonResult.data{
                             self.mangaResultList.append(Manga(MangaID: mangaModel.id, Title: mangaModel.attributes.title.en, Description: mangaModel.attributes.description.value() as! String, Status: mangaModel.attributes.status.rawValue))
                             self.mangaResultList[self.mangaResultList.count-1].getCoverArtURL()
-                            print("waiting")
                             self.waiting = false
                             self.mangaCollectionView.setContentOffset(CGPoint(x:0,y:0), animated: true)
                         }

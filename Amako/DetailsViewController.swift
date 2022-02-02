@@ -40,7 +40,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         getAllChapters(manga: manga!, offset: offset)
         waiting = true
         appDelegate = UIApplication.shared.delegate as! AppDelegate
-        mangaController.addToReadHistory(mangaID: manga!.mangaID)
+        mangaController.addToReadHistory(mangaID: manga!.mangaID, mangaTitle: manga!.title!, mangaImageUrl: manga!.coverUrl!)
         ref = Database.database().reference()
         
 //      Display labels

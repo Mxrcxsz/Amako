@@ -28,29 +28,34 @@ class MangaController{
         print(favMangaIDList)
         return favMangaList
     }
-    func addToReadHistory(mangaID:String)
+    func addToReadHistory(mangaID:String, mangaTitle:String, mangaImageUrl:URL)
     {
         let context = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "CDHistory", in: context)!
         
         let history = NSManagedObject(entity: entity, insertInto: context)
         history.setValue(mangaID, forKey: "mangaID")
+        history.setValue(mangaTitle, forKey: "mangaTitle")
+        history.setValue(mangaImageUrl, forKey: "mangaImageUrl")
         do{
             try context.save()
         } catch let error as NSError{
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
-    func retrieveReadHistory()->[String]{
+    func retrieveReadHistory()->[Manga]{
         var managedHistoryList : [NSManagedObject] = []
-        var historyList:[String] = []
+        var historyList:[Manga] = []
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CDHistory")
         do {
             managedHistoryList = try context.fetch(fetchRequest)
             for c in managedHistoryList {
                 let mangaID = c.value(forKeyPath: "mangaID") as! String
-                historyList.append(mangaID)
+                let mangaTitle = c.value(forKeyPath: "mangaTitle") as! String
+                let mangaImageUrl = c.value(forKeyPath: "mangaImageUrl") as! URL
+                let manga:Manga = Manga(MangaID: mangaID, CoverURL: mangaImageUrl, Title: mangaTitle)
+                historyList.append(manga)
             }
         } catch let error as NSError {
             print("Could not fetch. \(error) \(error.userInfo)")

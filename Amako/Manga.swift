@@ -30,6 +30,14 @@ class Manga{
         self.title = Title
     }
     
+    //for manga history
+    init(MangaID:String, CoverURL:URL, Title:String)
+    {
+        self.mangaID = MangaID
+        self.coverUrl = CoverURL
+        self.title = Title
+    }
+    
     func getCoverArtURL(){
     //      Building api url
         let urlPath = "https://api.mangadex.org/cover?manga[]=" + self.mangaID

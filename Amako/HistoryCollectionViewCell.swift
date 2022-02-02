@@ -10,6 +10,7 @@ import UIKit
 
 class HistoryCollectionViewCell: UICollectionViewCell
 {
+    @IBOutlet weak var mangaTitle: UILabel!
     @IBOutlet weak var labelFld: UILabel!
     @IBOutlet weak var mangaImg: UIImageView!
 }
