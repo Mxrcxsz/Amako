@@ -29,7 +29,7 @@ class SignUpViewController: UIViewController {
     
     @IBAction func logInBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let logInPage = storyboard.instantiateViewController(withIdentifier: "logInPage") as UIViewController
+        let logInPage = storyboard.instantiateViewController(withIdentifier: "LoginVC") as UIViewController
         logInPage.modalPresentationStyle = .fullScreen
         present(logInPage, animated: true, completion: nil)
     }
