@@ -18,6 +18,7 @@ class PagesCollectionViewController: UICollectionViewController {
     var firstCheck = 0
     var offset = 0
     var realChap = 0
+    var totalResult = 0
     var canLoad = true
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -27,6 +28,7 @@ class PagesCollectionViewController: UICollectionViewController {
         currChapter = appDelegate.selectedChapNo!
         //print("chapter", currChapter)
         realChap = appDelegate.selectedChapNo!
+        totalResult = appDelegate.totalResult!
         
         if currChapter > 100 && currChapter < 200{
             offset = 99
@@ -90,7 +92,7 @@ class PagesCollectionViewController: UICollectionViewController {
 //        print(height)
 //        print(distanceFromBottom + 60)
 
-        if distanceFromBottom + 60 < height && currPage != 0 && canLoad && currChapter <= chapterIDList.count{
+        if distanceFromBottom + 60 < height && currPage != 0 && canLoad && currChapter <= chapterIDList.count && realChap < totalResult{
            canLoad = false
            currChapter+=1
             realChap += 1
