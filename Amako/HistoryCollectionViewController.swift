@@ -100,7 +100,7 @@ class HistoryCollectionViewController: UICollectionViewController {
                             for i in self.historyList{
                                 if (i.mangaID == mangaModel.id){
                                     i.description = mangaModel.attributes.description.value() as? String
-                                    i.title = mangaModel.attributes.title.en
+                                    i.title = mangaModel.attributes.title.en ?? "no title"
                                     i.status = mangaModel.attributes.status.rawValue
                                 }
                             }

@@ -242,7 +242,7 @@ enum Status: String, Codable {
 
 // MARK: - Title
 struct Title: Codable {
-    let en: String
+    let en: String?
 }
 
 // MARK: Title convenience initializers and mutators

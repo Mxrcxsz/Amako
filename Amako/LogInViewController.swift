@@ -14,8 +14,6 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var passwordTxt: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        var mc = MangaController()
-        mc.deleteReadHistory()
         // Do any additional setup after loading the view.
     }
 
