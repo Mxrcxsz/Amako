@@ -33,12 +33,12 @@
 		E724C43D27A1CC0800539EB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E724C43C27A1CC0800539EB0 /* GoogleService-Info.plist */; };
 		E773320F27A4173C0032E506 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		E773321127A536460032E506 /* Cover Model Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = E773321027A536450032E506 /* Cover Model Class.swift */; };
-		E773321327A536A30032E506 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = E773321227A536A30032E506 /* Global.swift */; };
 		E773321527A6FBBF0032E506 /* Manga Model Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = E773321427A6FBBF0032E506 /* Manga Model Class.swift */; };
 		E773321727A70C970032E506 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E773321627A70C970032E506 /* DetailsViewController.swift */; };
 		E7A2257927A8587D00243B26 /* Chapter Model Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A2257827A8587D00243B26 /* Chapter Model Class.swift */; };
 		E7A2257B27A8698B00243B26 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A2257A27A8698B00243B26 /* Chapter.swift */; };
 		E7A2257D27A89AFB00243B26 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A2257C27A89AFB00243B26 /* SplashScreenViewController.swift */; };
+		E7B443C327AEEAB90035CAB6 /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B443C227AEEAB90035CAB6 /* TextFieldStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,12 +70,12 @@
 		E724C43A27A1C41900539EB0 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		E724C43C27A1CC0800539EB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E773321027A536450032E506 /* Cover Model Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cover Model Class.swift"; sourceTree = "<group>"; };
-		E773321227A536A30032E506 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		E773321427A6FBBF0032E506 /* Manga Model Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Manga Model Class.swift"; sourceTree = "<group>"; };
 		E773321627A70C970032E506 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		E7A2257827A8587D00243B26 /* Chapter Model Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chapter Model Class.swift"; sourceTree = "<group>"; };
 		E7A2257A27A8698B00243B26 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		E7A2257C27A89AFB00243B26 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		E7B443C227AEEAB90035CAB6 /* TextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
 		F2031E7A89A05CB82984A57D /* Pods_Amako.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amako.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -129,22 +129,16 @@
 		E724C41E27A1C0FB00539EB0 /* Amako */ = {
 			isa = PBXGroup;
 			children = (
+				E7B443C127AEE5F60035CAB6 /* Class */,
+				E7B443C027AEE5DA0035CAB6 /* Storyboard */,
+				E7B443BF27AEE5BE0035CAB6 /* Model Class */,
 				E724C43627A1C19F00539EB0 /* LogInViewController.swift */,
 				0F1D00D127A587C10056D338 /* SignUpViewController.swift */,
-				E773321027A536450032E506 /* Cover Model Class.swift */,
-				E773321427A6FBBF0032E506 /* Manga Model Class.swift */,
-				E7A2257827A8587D00243B26 /* Chapter Model Class.swift */,
 				E724C43C27A1CC0800539EB0 /* GoogleService-Info.plist */,
 				E724C43A27A1C41900539EB0 /* FirebaseAuthManager.swift */,
-				E773321227A536A30032E506 /* Global.swift */,
-				0F1D00B827A301660056D338 /* User.swift */,
-				0F1D00C227A3A28C0056D338 /* Manga.swift */,
-				E7A2257A27A8698B00243B26 /* Chapter.swift */,
 				0F1D00C427A3A3AF0056D338 /* MangaController.swift */,
 				E724C41F27A1C0FB00539EB0 /* AppDelegate.swift */,
 				E724C42127A1C0FB00539EB0 /* SceneDelegate.swift */,
-				E724C42527A1C0FB00539EB0 /* Main.storyboard */,
-				19ABD34427A68F17008AFF31 /* Content.storyboard */,
 				0F4F500C27A6959300CA8637 /* AccountViewController.swift */,
 				E773321627A70C970032E506 /* DetailsViewController.swift */,
 				0F1D00CF27A41CF30056D338 /* HistoryCollectionViewCell.swift */,
@@ -162,6 +156,36 @@
 				E724C42827A1C0FB00539EB0 /* Amako.xcdatamodeld */,
 			);
 			path = Amako;
+			sourceTree = "<group>";
+		};
+		E7B443BF27AEE5BE0035CAB6 /* Model Class */ = {
+			isa = PBXGroup;
+			children = (
+				E773321027A536450032E506 /* Cover Model Class.swift */,
+				E773321427A6FBBF0032E506 /* Manga Model Class.swift */,
+				E7A2257827A8587D00243B26 /* Chapter Model Class.swift */,
+			);
+			path = "Model Class";
+			sourceTree = "<group>";
+		};
+		E7B443C027AEE5DA0035CAB6 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E724C42527A1C0FB00539EB0 /* Main.storyboard */,
+				19ABD34427A68F17008AFF31 /* Content.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		E7B443C127AEE5F60035CAB6 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				0F1D00B827A301660056D338 /* User.swift */,
+				0F1D00C227A3A28C0056D338 /* Manga.swift */,
+				E7A2257A27A8698B00243B26 /* Chapter.swift */,
+				E7B443C227AEEAB90035CAB6 /* TextFieldStyle.swift */,
+			);
+			path = Class;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,7 +319,6 @@
 				E7A2257B27A8698B00243B26 /* Chapter.swift in Sources */,
 				0F1D00C527A3A3AF0056D338 /* MangaController.swift in Sources */,
 				19CB52DD27A2EB8C00ABB675 /* PageCollectionViewCell.swift in Sources */,
-				E773321327A536A30032E506 /* Global.swift in Sources */,
 				E7A2257D27A89AFB00243B26 /* SplashScreenViewController.swift in Sources */,
 				E773321727A70C970032E506 /* DetailsViewController.swift in Sources */,
 				0F4F500D27A6959300CA8637 /* AccountViewController.swift in Sources */,
@@ -311,6 +334,7 @@
 				E724C42A27A1C0FB00539EB0 /* Amako.xcdatamodeld in Sources */,
 				E773321127A536460032E506 /* Cover Model Class.swift in Sources */,
 				19CB52DF27A2EBAC00ABB675 /* PagesCollectionViewController.swift in Sources */,
+				E7B443C327AEEAB90035CAB6 /* TextFieldStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
