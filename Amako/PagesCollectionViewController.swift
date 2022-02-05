@@ -92,43 +92,52 @@ class PagesCollectionViewController: UICollectionViewController {
 //        print(height)
 //        print(distanceFromBottom + 60)
 
-        if distanceFromBottom + 60 < height && currPage != 0 && canLoad && currChapter <= chapterIDList.count && realChap < totalResult{
-           canLoad = false
-           currChapter+=1
-            realChap += 1
-            
-            if realChap > 100 && realChap < 200{
-                offset = 99
-                currChapter = realChap - 99
+        if distanceFromBottom + 60 < height && currPage != 0 && canLoad && currChapter <= chapterIDList.count{
+            if realChap < totalResult{
+                canLoad = false
+                currChapter+=1
+                realChap += 1
+
+                if realChap > 100 && realChap < 200{
+                    offset = 99
+                    currChapter = realChap - 99
+                }
+                else if realChap >= 200{
+                    offset = 199
+                    currChapter = realChap - 199
+                }
+                self.updateNextSet()
+                currPage = 0
             }
-            else if realChap >= 200{
-                offset = 199
-                currChapter = realChap - 199
+            else{
+                showToast(message: "Last Chapter", font: .systemFont(ofSize: 12.0))
             }
-            
-           self.updateNextSet()
-           currPage = 0
         }
-        else if distanceFromBottom > scrollView.contentSize.height + 210 && realChap != 1 && canLoad{
-           canLoad = false
-           currChapter-=1
-            realChap -= 1
-            
-            if realChap <= 100{
-                offset = 0
-                currChapter = realChap
+        else if distanceFromBottom > scrollView.contentSize.height + 210 && canLoad{
+            if realChap != 1{
+                canLoad = false
+                currChapter-=1
+                realChap -= 1
+                
+                if realChap <= 100{
+                    offset = 0
+                    currChapter = realChap
+                }
+                else if realChap > 100 && realChap < 200{
+                    offset = 99
+                    currChapter = realChap - 99
+                }
+                else if realChap >= 200{
+                    offset = 199
+                    currChapter = realChap - 199
+                }
+                
+               self.updatePreviousSet()
+               currPage = 0
             }
-            else if realChap > 100 && realChap < 200{
-                offset = 99
-                currChapter = realChap - 99
+            else{
+                showToast(message: "First Chapter", font: .systemFont(ofSize: 12.0))
             }
-            else if realChap >= 200{
-                offset = 199
-                currChapter = realChap - 199
-            }
-            
-           self.updatePreviousSet()
-           currPage = 0
         }
     }
     
@@ -225,6 +234,25 @@ class PagesCollectionViewController: UICollectionViewController {
     func imgLinkBuilder(index:Int)->String{
         let urlPath = "https://uploads.mangadex.org/data/" + chapterHash + "/" + pageList[index]
         return urlPath
+    }
+    
+    func showToast(message : String, font: UIFont) {
+
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.gray.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 18;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+             toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
 }
 
