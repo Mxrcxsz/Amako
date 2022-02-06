@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LogInViewController: UIViewController {
     var appDelegate = (UIApplication.shared.delegate) as! AppDelegate
@@ -27,7 +28,6 @@ class LogInViewController: UIViewController {
             emailTxt.text = UserDefaults.standard.string(forKey: "Email")!
             passwordTxt.text = UserDefaults.standard.string(forKey: "Password")!
         }
-       
         // Do any additional setup after loading the view.
     }
     
@@ -75,6 +75,41 @@ class LogInViewController: UIViewController {
             }
     }
     
+    @IBAction func forgotPass(_ sender: Any) {
+        let alert = UIAlertController(title: "Forgot Password", message: "Please the email you used to signup with", preferredStyle: .alert)
+
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.placeholder = "Email"
+        }
+
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            print("Text field: \(textField!.text)")
+            
+            if textField!.text != ""{
+                let auth = Auth.auth()
+                auth.sendPasswordReset(withEmail: textField!.text!) { (error) in
+                    if let error = error {
+                        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+
+                        alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                        self.present(alert, animated: true)
+                        return
+                    }
+                    let alert = UIAlertController(title: "Success", message: "Email reset sent", preferredStyle: .alert)
+
+                    alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                }
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func checkBoxClicked(_ sender: UIButton) {
         if sender.isSelected{
             isChecked = false
@@ -92,7 +127,6 @@ class LogInViewController: UIViewController {
                 sender.transform = .identity
             }, completion: nil)
         }
-
     }
     
     func showAlert(message:String){
@@ -100,6 +134,4 @@ class LogInViewController: UIViewController {
         loginResultAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(loginResultAlert, animated: true)
     }
-    
-    
 }

@@ -12,7 +12,7 @@
         <!--Search-->
         <scene sceneID="ZeP-qG-h18">
             <objects>
-                <viewController id="d4D-oe-1jK" customClass="MangaSearchViewController" customModule="Amako" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="pageSheet" id="d4D-oe-1jK" customClass="MangaSearchViewController" customModule="Amako" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r7v-mL-U3T">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
