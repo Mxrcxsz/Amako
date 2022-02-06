@@ -38,8 +38,7 @@ class HistoryCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mangaCell", for: indexPath) as! HistoryCollectionViewCell
         let manga = historyList[indexPath.row]
         let url = manga.coverUrl
-        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-        cell.mangaImg.image = UIImage(data: data!)
+        cell.mangaImg.downloaded(from: url!)
         cell.mangaTitle.text = manga.title
         return cell
     }
