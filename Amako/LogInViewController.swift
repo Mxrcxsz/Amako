@@ -76,14 +76,12 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func forgotPass(_ sender: Any) {
-        let alert = UIAlertController(title: "Forgot Password", message: "Please the email you used to signup with", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Forgot Password", message: "Please enter the email you used to signup with", preferredStyle: .alert)
 
-        //2. Add the text field. You can configure it however you need.
         alert.addTextField { (textField) in
             textField.placeholder = "Email"
         }
 
-        // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
             print("Text field: \(textField!.text)")
@@ -93,13 +91,11 @@ class LogInViewController: UIViewController {
                 auth.sendPasswordReset(withEmail: textField!.text!) { (error) in
                     if let error = error {
                         let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-
                         alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
                         self.present(alert, animated: true)
                         return
                     }
-                    let alert = UIAlertController(title: "Success", message: "Email reset sent", preferredStyle: .alert)
-
+                    let alert = UIAlertController(title: "Sent", message: "An email has been sent", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
                     self.present(alert, animated: true)
                 }
