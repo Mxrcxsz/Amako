@@ -20,9 +20,12 @@ class TextFieldUnderline: UITextField {
     func setIcon() {
         var image:UIImage?
         if(tag == 0){
-            image = UIImage(named: "user")
+            image = UIImage(named: "email")
         }else if(tag == 1){
             image = UIImage(named: "lock")
+        }
+        else{
+            image = UIImage(named: "user")
         }
         
         let iconView = UIImageView(frame:
