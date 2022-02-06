@@ -19,12 +19,10 @@ class LogInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkBox.setImage(UIImage(named:"checkbox-check"), for: .selected)
-        checkBox.setImage(UIImage(named:"checkbox-uncheck"), for: .normal)
         
         if UserDefaults.standard.string(forKey: "Email") != nil && UserDefaults.standard.string(forKey: "Password") != nil{
-            checkBox.isSelected = !checkBox.isSelected
             isChecked = true
+            checkBox.setImage(UIImage(named:"checkbox-check"), for: .normal)
             emailTxt.text = UserDefaults.standard.string(forKey: "Email")!
             passwordTxt.text = UserDefaults.standard.string(forKey: "Password")!
         }
@@ -107,21 +105,22 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func checkBoxClicked(_ sender: UIButton) {
-        if sender.isSelected{
+        if isChecked{
             isChecked = false
+            checkBox.setImage(UIImage(named:"checkbox-uncheck"), for: .normal)
         }
         else{
             isChecked = true
-        }
-        
-        UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveLinear, animations: {
-            sender.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-        })
-        { (success) in
-            UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveLinear, animations: {
-                sender.isSelected = !sender.isSelected
-                sender.transform = .identity
-            }, completion: nil)
+            checkBox.setImage(UIImage(named:"checkbox-check"), for: .normal)
+            
+            UIView.animate(withDuration: 0.1, delay: 0, options: .curveLinear, animations: {
+                sender.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            })
+            { (success) in
+                UIView.animate(withDuration: 0.1, delay: 0, options: .curveLinear, animations: {
+                    sender.transform = .identity
+                }, completion: nil)
+            }
         }
     }
     
