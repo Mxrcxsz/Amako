@@ -54,7 +54,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLF-iF-tO5">
-                                        <rect key="frame" x="57" y="522" width="300" height="34.5"/>
+                                        <rect key="frame" x="57" y="516" width="300" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Login">
                                             <backgroundConfiguration key="background">
@@ -80,13 +80,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No account? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTc-6i-hZK">
-                                        <rect key="frame" x="105" y="586.5" width="100.5" height="20.5"/>
+                                        <rect key="frame" x="105" y="580.5" width="100.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bts-xu-D0s">
-                                        <rect key="frame" x="196" y="581" width="132" height="31"/>
+                                        <rect key="frame" x="196" y="575" width="132" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sign Up Now!">
                                             <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
@@ -95,6 +95,17 @@
                                             <action selector="signUpBtn:" destination="rSG-I6-tpp" eventType="touchUpInside" id="FxC-MX-7WB"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2o-dh-Bbo">
+                                        <rect key="frame" x="326" y="470" width="46" height="36"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="checkbox-uncheck"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVM-BN-yEz">
+                                        <rect key="frame" x="216" y="477" width="111.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -102,16 +113,20 @@
                                     <constraint firstItem="GbP-DF-zJx" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="57" id="55q-Vi-Cfo"/>
                                     <constraint firstItem="FCb-nK-Up7" firstAttribute="top" secondItem="e3V-iP-Ta0" secondAttribute="top" constant="170" id="AmC-V8-EFF"/>
                                     <constraint firstAttribute="trailing" secondItem="pBv-L4-OpC" secondAttribute="trailing" constant="57" id="BYU-h7-6T0"/>
+                                    <constraint firstItem="SVM-BN-yEz" firstAttribute="top" secondItem="GbP-DF-zJx" secondAttribute="bottom" constant="25" id="C5J-Ci-cXT"/>
                                     <constraint firstAttribute="trailing" secondItem="Bts-xu-D0s" secondAttribute="trailing" constant="86" id="DpU-19-ys8"/>
                                     <constraint firstItem="Bts-xu-D0s" firstAttribute="top" secondItem="cLF-iF-tO5" secondAttribute="bottom" constant="24.5" id="ECD-3R-tOn"/>
                                     <constraint firstItem="cLF-iF-tO5" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="57" id="FYm-Pu-v9u"/>
                                     <constraint firstAttribute="trailing" secondItem="FCb-nK-Up7" secondAttribute="trailing" constant="74" id="IMz-L0-9mK"/>
+                                    <constraint firstItem="k2o-dh-Bbo" firstAttribute="leading" secondItem="SVM-BN-yEz" secondAttribute="trailing" constant="-1.5" id="JTT-3L-jsl"/>
                                     <constraint firstItem="Bts-xu-D0s" firstAttribute="leading" secondItem="JTc-6i-hZK" secondAttribute="trailing" constant="-9.5" id="OFO-nj-kif"/>
                                     <constraint firstAttribute="trailing" secondItem="cLF-iF-tO5" secondAttribute="trailing" constant="57" id="Obv-ba-R9g"/>
                                     <constraint firstItem="FCb-nK-Up7" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="76" id="UBe-yn-FVU"/>
                                     <constraint firstItem="GbP-DF-zJx" firstAttribute="top" secondItem="pBv-L4-OpC" secondAttribute="bottom" constant="50" id="UNs-U5-G6a"/>
-                                    <constraint firstItem="cLF-iF-tO5" firstAttribute="top" secondItem="GbP-DF-zJx" secondAttribute="bottom" constant="70" id="Za6-sV-gmP"/>
+                                    <constraint firstItem="k2o-dh-Bbo" firstAttribute="top" secondItem="GbP-DF-zJx" secondAttribute="bottom" constant="18" id="elv-Qn-orY"/>
                                     <constraint firstItem="JTc-6i-hZK" firstAttribute="top" secondItem="cLF-iF-tO5" secondAttribute="bottom" constant="30" id="hey-ER-oMc"/>
+                                    <constraint firstAttribute="trailing" secondItem="k2o-dh-Bbo" secondAttribute="trailing" constant="42" id="i9M-7P-6Ex"/>
+                                    <constraint firstItem="cLF-iF-tO5" firstAttribute="top" secondItem="k2o-dh-Bbo" secondAttribute="bottom" constant="10" id="itJ-JK-jtP"/>
                                     <constraint firstItem="JTc-6i-hZK" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="105" id="q2b-Wk-hg3"/>
                                     <constraint firstItem="pBv-L4-OpC" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="57" id="rhD-dZ-4eY"/>
                                     <constraint firstItem="pBv-L4-OpC" firstAttribute="top" secondItem="FCb-nK-Up7" secondAttribute="bottom" constant="50" id="zb1-LF-hLK"/>
@@ -129,6 +144,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Log In" id="0D9-aW-v2t"/>
                     <connections>
+                        <outlet property="checkBox" destination="k2o-dh-Bbo" id="ku2-Oj-lbG"/>
                         <outlet property="emailTxt" destination="pBv-L4-OpC" id="BZh-y2-2KV"/>
                         <outlet property="passwordTxt" destination="GbP-DF-zJx" id="OBa-RX-D1T"/>
                     </connections>
@@ -239,6 +255,7 @@
     </scenes>
     <resources>
         <image name="Amako" width="596" height="209"/>
+        <image name="checkbox-uncheck" width="22" height="22"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
