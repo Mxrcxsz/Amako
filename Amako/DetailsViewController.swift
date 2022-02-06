@@ -40,7 +40,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         getAllChapters(manga: manga!, offset: offset)
         waiting = true
         appDelegate = UIApplication.shared.delegate as! AppDelegate
-        mangaController.addToReadHistory(mangaID: manga!.mangaID, mangaTitle: manga!.title!, mangaImageUrl: manga!.coverUrl!)
+        //mangaController.addToReadHistory(mangaID: manga!.mangaID, mangaTitle: manga!.title!, mangaImageUrl: manga!.coverUrl!)
         ref = Database.database().reference()
         
 //      Display labels
@@ -125,6 +125,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print("Chapter number:", indexPath.row, "MangaID:", (manga?.mangaID)!)
+        mangaController.addToReadHistory(mangaID: manga!.mangaID, mangaTitle: manga!.title!, mangaImageUrl: manga!.coverUrl!)
         appDelegate!.selectedChapNo = indexPath.row + 1
         appDelegate!.selectedMangaId = (manga?.mangaID)!
     }
@@ -184,6 +185,9 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             DispatchQueue.main.sync {
                 self.chapterTableView.reloadData()
                 self.loadMoreChapters()
+                if self.totalResult == 0{
+                    self.showToast(message: "No Chapters Found", font: .systemFont(ofSize: 12.0))
+                }
             }
         }.resume()
     }
@@ -194,5 +198,23 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             getAllChapters(manga: manga!, offset: offset)
             waiting = true
         }
+    }
+    
+    func showToast(message : String, font: UIFont) {
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.gray.withAlphaComponent(1.0)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 18;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4, delay: 0.5, options: .curveEaseOut, animations: {
+             toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
 }
