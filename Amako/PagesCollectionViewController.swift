@@ -86,6 +86,17 @@ class PagesCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    override func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        let actualPosition = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
+        if (actualPosition.y < 0){
+            // Dragging down
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+        }
+        else{
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
+        }
+    }
+    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let height = scrollView.frame.size.height
         let contentYoffset = scrollView.contentOffset.y
