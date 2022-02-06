@@ -73,6 +73,7 @@ class PagesCollectionViewController: UICollectionViewController {
         //this 2 are needed
         cell.pictureView.contentMode = .scaleToFill
         cell.pictureView.downloaded(from: imgLinkBuilder(index: indexPath.row))
+        print("CurrPage", indexPath.row)
         
 //        if firstCheck != pageList.count-1{
 //            firstCheck = indexPath.row
@@ -147,7 +148,6 @@ class PagesCollectionViewController: UICollectionViewController {
 
         
     func updateNextSet(){
-        //print("current chapter " + String(currChapter))
         getAllChapters(mangaID: appDelegate.selectedMangaId!)
         DispatchQueue.main.async(execute: collectionView.reloadData)
         self.collectionView.setContentOffset(CGPoint(x:0,y:0), animated: true)
@@ -157,11 +157,11 @@ class PagesCollectionViewController: UICollectionViewController {
     }
     
     func updatePreviousSet(){
-        //print("current chapter " + String(currChapter))
         getAllChapters(mangaID: appDelegate.selectedMangaId!)
         DispatchQueue.main.async(execute: collectionView.reloadData)
         currPage = 0
         firstCheck = 0
+        self.collectionView.scrollToItem(at: NSIndexPath(row: pageList.count-1, section: 0) as IndexPath, at: .bottom, animated: true)
         pageList.removeAll()
     }
     

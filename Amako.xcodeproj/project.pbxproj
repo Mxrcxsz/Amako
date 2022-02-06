@@ -151,7 +151,6 @@
 				19CB52DC27A2EB8C00ABB675 /* PageCollectionViewCell.swift */,
 				19CB52DE27A2EBAC00ABB675 /* PagesCollectionViewController.swift */,
 				E724C42B27A1C0FD00539EB0 /* Assets.xcassets */,
-				E724C42D27A1C0FD00539EB0 /* LaunchScreen.storyboard */,
 				E724C43027A1C0FD00539EB0 /* Info.plist */,
 				E724C42827A1C0FB00539EB0 /* Amako.xcdatamodeld */,
 			);
@@ -171,6 +170,7 @@
 		E7B443C027AEE5DA0035CAB6 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				E724C42D27A1C0FD00539EB0 /* LaunchScreen.storyboard */,
 				E724C42527A1C0FB00539EB0 /* Main.storyboard */,
 				19ABD34427A68F17008AFF31 /* Content.storyboard */,
 			);
