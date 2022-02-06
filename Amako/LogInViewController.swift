@@ -13,8 +13,21 @@ class LogInViewController: UIViewController {
     
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
+    @IBOutlet weak var checkBox: UIButton!
+    var isChecked = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkBox.setImage(UIImage(named:"checkbox-check"), for: .selected)
+        checkBox.setImage(UIImage(named:"checkbox-uncheck"), for: .normal)
+        
+        if UserDefaults.standard.string(forKey: "Email") != nil && UserDefaults.standard.string(forKey: "Password") != nil{
+            checkBox.isSelected = !checkBox.isSelected
+            isChecked = true
+            emailTxt.text = UserDefaults.standard.string(forKey: "Email")!
+            passwordTxt.text = UserDefaults.standard.string(forKey: "Password")!
+        }
+       
         // Do any additional setup after loading the view.
     }
     
@@ -35,10 +48,21 @@ class LogInViewController: UIViewController {
             message = "Please fill in all inputs"
             showAlert(message: message)
         }
+                
         let loginManager = FirebaseAuthManager()
             loginManager.signIn(email: email, pass: password) {[weak self] (success) in
                 guard let `self` = self else { return }
                 if (success) {
+                    if self.isChecked{
+                        UserDefaults.standard.set(self.emailTxt.text, forKey:"Email")
+                        UserDefaults.standard.set(self.passwordTxt.text, forKey:"Password")
+                        print("Email:", UserDefaults.standard.string(forKey: "Email"))
+                    }
+                    else{
+                        UserDefaults.standard.removeObject(forKey: "Email")
+                        UserDefaults.standard.removeObject(forKey: "Password")
+                        print("Email:", UserDefaults.standard.string(forKey: "Email"))
+                    }
                     self.message = "User was sucessfully logged in."
                     let storyboard = UIStoryboard(name: "Content", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "Content") as UIViewController
@@ -51,9 +75,31 @@ class LogInViewController: UIViewController {
             }
     }
     
+    @IBAction func checkBoxClicked(_ sender: UIButton) {
+        if sender.isSelected{
+            isChecked = false
+        }
+        else{
+            isChecked = true
+        }
+        
+        UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveLinear, animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        })
+        { (success) in
+            UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveLinear, animations: {
+                sender.isSelected = !sender.isSelected
+                sender.transform = .identity
+            }, completion: nil)
+        }
+
+    }
+    
     func showAlert(message:String){
         let loginResultAlert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         loginResultAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(loginResultAlert, animated: true)
     }
+    
+    
 }

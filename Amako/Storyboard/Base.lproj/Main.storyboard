@@ -54,13 +54,13 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No account? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTc-6i-hZK">
-                                        <rect key="frame" x="93" y="591.5" width="100.5" height="20.5"/>
+                                        <rect key="frame" x="93" y="621.5" width="100.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLF-iF-tO5">
-                                        <rect key="frame" x="57" y="527" width="300" height="34.5"/>
+                                        <rect key="frame" x="57" y="557" width="300" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Login">
                                             <backgroundConfiguration key="background">
@@ -86,7 +86,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bts-xu-D0s">
-                                        <rect key="frame" x="184" y="586" width="163" height="31"/>
+                                        <rect key="frame" x="184" y="616" width="163" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sign Up Now!">
                                             <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
@@ -95,6 +95,23 @@
                                             <action selector="signUpBtn:" destination="rSG-I6-tpp" eventType="touchUpInside" id="FxC-MX-7WB"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMX-hz-cAa">
+                                        <rect key="frame" x="45" y="493" width="24" height="14"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="">
+                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="checkBoxClicked:" destination="rSG-I6-tpp" eventType="touchUpInside" id="rZb-19-WUc"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIv-Uk-Ovy">
+                                        <rect key="frame" x="84" y="502" width="112" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -107,11 +124,15 @@
                                     <constraint firstAttribute="trailing" secondItem="FCb-nK-Up7" secondAttribute="trailing" constant="74" id="IMz-L0-9mK"/>
                                     <constraint firstItem="Bts-xu-D0s" firstAttribute="leading" secondItem="JTc-6i-hZK" secondAttribute="trailing" constant="-9.5" id="OFO-nj-kif"/>
                                     <constraint firstAttribute="trailing" secondItem="cLF-iF-tO5" secondAttribute="trailing" constant="57" id="Obv-ba-R9g"/>
+                                    <constraint firstItem="NIv-Uk-Ovy" firstAttribute="top" secondItem="GbP-DF-zJx" secondAttribute="bottom" constant="45" id="RSM-l1-yNr"/>
                                     <constraint firstItem="FCb-nK-Up7" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="76" id="UBe-yn-FVU"/>
                                     <constraint firstItem="GbP-DF-zJx" firstAttribute="top" secondItem="pBv-L4-OpC" secondAttribute="bottom" constant="50" id="UNs-U5-G6a"/>
+                                    <constraint firstItem="lMX-hz-cAa" firstAttribute="top" secondItem="GbP-DF-zJx" secondAttribute="bottom" constant="36" id="UdM-H8-fX7"/>
                                     <constraint firstItem="FCb-nK-Up7" firstAttribute="top" secondItem="e3V-iP-Ta0" secondAttribute="top" constant="175" id="Xev-gJ-gr9"/>
-                                    <constraint firstItem="cLF-iF-tO5" firstAttribute="top" secondItem="GbP-DF-zJx" secondAttribute="bottom" constant="70" id="Za6-sV-gmP"/>
+                                    <constraint firstItem="NIv-Uk-Ovy" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="84" id="fgF-di-DLV"/>
                                     <constraint firstItem="JTc-6i-hZK" firstAttribute="top" secondItem="cLF-iF-tO5" secondAttribute="bottom" constant="30" id="hey-ER-oMc"/>
+                                    <constraint firstItem="lMX-hz-cAa" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="45" id="mUa-u7-Ch3"/>
+                                    <constraint firstItem="cLF-iF-tO5" firstAttribute="top" secondItem="lMX-hz-cAa" secondAttribute="bottom" constant="50" id="mv4-cb-5Ab"/>
                                     <constraint firstItem="JTc-6i-hZK" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="93" id="q2b-Wk-hg3"/>
                                     <constraint firstItem="pBv-L4-OpC" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="57" id="rhD-dZ-4eY"/>
                                     <constraint firstItem="pBv-L4-OpC" firstAttribute="top" secondItem="FCb-nK-Up7" secondAttribute="bottom" constant="50" id="zb1-LF-hLK"/>
@@ -129,6 +150,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Log In" id="0D9-aW-v2t"/>
                     <connections>
+                        <outlet property="checkBox" destination="lMX-hz-cAa" id="DKm-qb-dOa"/>
                         <outlet property="emailTxt" destination="pBv-L4-OpC" id="BZh-y2-2KV"/>
                         <outlet property="passwordTxt" destination="GbP-DF-zJx" id="OBa-RX-D1T"/>
                     </connections>
