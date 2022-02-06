@@ -106,10 +106,25 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7X-UE-OsT">
+                                        <rect key="frame" x="76" y="623" width="136" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kq1-09-Z9t">
+                                        <rect key="frame" x="210" y="619" width="117" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Click Here"/>
+                                        <connections>
+                                            <action selector="forgotPass:" destination="rSG-I6-tpp" eventType="touchUpInside" id="9y3-5c-Kec"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="GbP-DF-zJx" secondAttribute="trailing" constant="57" id="4dq-ck-fbJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kq1-09-Z9t" secondAttribute="trailing" constant="87" id="4xf-o8-gLr"/>
                                     <constraint firstItem="GbP-DF-zJx" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="57" id="55q-Vi-Cfo"/>
                                     <constraint firstItem="FCb-nK-Up7" firstAttribute="top" secondItem="e3V-iP-Ta0" secondAttribute="top" constant="170" id="AmC-V8-EFF"/>
                                     <constraint firstAttribute="trailing" secondItem="pBv-L4-OpC" secondAttribute="trailing" constant="57" id="BYU-h7-6T0"/>
@@ -117,10 +132,13 @@
                                     <constraint firstAttribute="trailing" secondItem="Bts-xu-D0s" secondAttribute="trailing" constant="86" id="DpU-19-ys8"/>
                                     <constraint firstItem="Bts-xu-D0s" firstAttribute="top" secondItem="cLF-iF-tO5" secondAttribute="bottom" constant="24.5" id="ECD-3R-tOn"/>
                                     <constraint firstItem="cLF-iF-tO5" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="57" id="FYm-Pu-v9u"/>
+                                    <constraint firstItem="Kq1-09-Z9t" firstAttribute="top" secondItem="Bts-xu-D0s" secondAttribute="bottom" constant="13" id="GBQ-6c-0XV"/>
                                     <constraint firstAttribute="trailing" secondItem="FCb-nK-Up7" secondAttribute="trailing" constant="74" id="IMz-L0-9mK"/>
+                                    <constraint firstItem="s7X-UE-OsT" firstAttribute="top" secondItem="Bts-xu-D0s" secondAttribute="bottom" constant="17" id="Il6-j7-Zh6"/>
                                     <constraint firstItem="k2o-dh-Bbo" firstAttribute="leading" secondItem="SVM-BN-yEz" secondAttribute="trailing" constant="-1.5" id="JTT-3L-jsl"/>
                                     <constraint firstItem="Bts-xu-D0s" firstAttribute="leading" secondItem="JTc-6i-hZK" secondAttribute="trailing" constant="-9.5" id="OFO-nj-kif"/>
                                     <constraint firstAttribute="trailing" secondItem="cLF-iF-tO5" secondAttribute="trailing" constant="57" id="Obv-ba-R9g"/>
+                                    <constraint firstItem="s7X-UE-OsT" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="76" id="Pqj-d0-gl6"/>
                                     <constraint firstItem="FCb-nK-Up7" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="76" id="UBe-yn-FVU"/>
                                     <constraint firstItem="GbP-DF-zJx" firstAttribute="top" secondItem="pBv-L4-OpC" secondAttribute="bottom" constant="50" id="UNs-U5-G6a"/>
                                     <constraint firstItem="k2o-dh-Bbo" firstAttribute="top" secondItem="GbP-DF-zJx" secondAttribute="bottom" constant="18" id="elv-Qn-orY"/>
@@ -129,6 +147,8 @@
                                     <constraint firstItem="cLF-iF-tO5" firstAttribute="top" secondItem="k2o-dh-Bbo" secondAttribute="bottom" constant="10" id="itJ-JK-jtP"/>
                                     <constraint firstItem="JTc-6i-hZK" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="105" id="q2b-Wk-hg3"/>
                                     <constraint firstItem="pBv-L4-OpC" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="57" id="rhD-dZ-4eY"/>
+                                    <constraint firstAttribute="trailing" secondItem="s7X-UE-OsT" secondAttribute="trailing" constant="202" id="rxz-f9-4ms"/>
+                                    <constraint firstItem="Kq1-09-Z9t" firstAttribute="leading" secondItem="e3V-iP-Ta0" secondAttribute="leading" constant="210" id="uIO-P8-jcC"/>
                                     <constraint firstItem="pBv-L4-OpC" firstAttribute="top" secondItem="FCb-nK-Up7" secondAttribute="bottom" constant="50" id="zb1-LF-hLK"/>
                                 </constraints>
                             </view>
