@@ -18,13 +18,7 @@ Amako is an iOS manga reading application developed as a school project. Built w
 ---
 
 ## 📸 App Demo
-https://github.com/user-attachments/assets/12a0f978-ce34-4658-a73c-9b7344fbebf8
-
-
-
-
-
-
+https://github.com/user-attachments/assets/1afc8a58-96a9-416d-9151-23084a444023
 
 
 ---
