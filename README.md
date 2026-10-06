@@ -56,7 +56,7 @@ Amako uses the [MangaDex API](https://api.mangadex.org) to:
 ## 🔥 Firebase Integration
 Firebase powers the backend functionality of Amako:
 - **Firebase Authentication** — Handles user registration and login
-- **Cloud Firestore** — Stores each user's favourites list and reading history, tied to their account
+- **Firebase Realtime Database** — Stores each user's favourites list and reading history, tied to their account
 
 ---
 
